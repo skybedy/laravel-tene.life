@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Tenerife | Los Cristianos | Webcam |</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,16 +19,22 @@
             </style>
         @endif
     </head>
-    <body>
-        
-        <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
-                
-            </main>
-        </div>
 
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
-    </body>
+
+<body class="min-h-screen flex justify-center bg-gray-100">
+  <div class="bg-white rounded-2xl shadow-lg overflow-hidden max-w-lg w-full">
+    <img src="images/tenelife.jpg" alt="Webkamera výhled" class="w-full">
+    <div class="p-6">
+      <h2 class="text-xl font-semibold mb-1">Webkamera – Tenerife, Los Cristianos</h2>
+      <p class="text-gray-600 text-sm">
+        Umístění: Avenida Ámsterdam<br>
+        Směr: severovýchod, výhled na Montaña el Mojón 250mnm a Roque de Ichasagua 1001, při dobré viditelnosti pak v pozadí na Pico del Teide 3715, Pico Viejo 3135 a Alto de Guajara 2715.
+      </p>
+    </div>
+  </div>
+</body>
+
 </html>
+
+
+
