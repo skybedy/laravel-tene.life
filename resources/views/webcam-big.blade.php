@@ -4,8 +4,8 @@
         <div class="relative">
             
              <a href="{{ route('index.index') }}"
-       class="absolute top-3 lg:top-5 right-3 lg:right-5 
-              bg-black/60  
+       class="absolute top-1 lg:top-5 right-1 lg:right-5 
+              bg-black/50  
               hover:bg-white/50 
               text-white 
               hover:text-black 

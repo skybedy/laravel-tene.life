@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="mx-auto w-full sm:w-3/4 p-6 sm-p-8">
+    <div class="mx-auto w-full sm:w-3/4 p-4 sm-p-8">
 
    
     
-    <div class=" bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden  border border-gray-300 p-4 sm:p-6">
+    <div class=" bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden  border border-gray-300 sm:p-6">
 
         <div class="relative">
             <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-2xl">
