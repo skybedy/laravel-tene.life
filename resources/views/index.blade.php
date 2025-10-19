@@ -1,6 +1,9 @@
 <x-app-layout>
+    <div class="mx-auto w-full sm:w-3/4 p-6 sm-p-8">
+
+   
     
-    <div class="mx-auto bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden w-5/6 sm:w-3/4 border border-gray-300 my-8">
+    <div class=" bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden  border border-gray-300 p-4 sm:p-6">
 
         <div class="relative">
             <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-2xl">
@@ -25,12 +28,13 @@
 
         <div class="p-6">
             <h2 class="text-sm sm:text-xl font-semibold mb-1">Webkamera – Tenerife, Los Cristianos</h2>
-            <p class="text-gray-600 text-xs sm:text-sm">
+            <p class="text-gray-600 text-xs sm:text-lg">
                 Umístění: Avenida Ámsterdam<br>
                 Směr: severovýchod, výhled na Montaña el Mojón 250 m/nm a Roque de Ichasagua 1001, při dobré viditelnosti pak v pozadí i na Pico del Teide 3715, Pico Viejo 3135 a Alto de Guajara 2715.
             </p>
         </div>
     </div>
+     </div>
 </x-app-layout>
 
 
