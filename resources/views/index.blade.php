@@ -1,12 +1,23 @@
 <x-app-layout>
     <div class="mx-auto w-full sm:w-3/4 p-4 sm-p-8">
 
-   
+   @php
+        $timestamp = filemtime('images/tenelife.jpg');
+        $date = date('d. m. Y', $timestamp);
+        $time = date('H:i:s', $timestamp)
+   @endphp
     
     <div class=" bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden  border border-gray-300 sm:p-6">
 
         <div class="relative">
+            
             <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-2xl">
+
+            <div class="absolute top-3 lg:top-5 left-3 lg:left-5  px-4 sm-px-8 py-2 sm:py-4 rounded-xl sm:rounded-2xl bg-black/40 text-sm sm:text-2xl text-white font-bold flex flex-col gap-y-1 items-center justify-center">
+                <p>{{ $date }}</p>
+                <p>{{ $time }}</p>
+            </div>
+            
 
           <!-- Lupa v pravém horním rohu -->
             <a href="{{ route('index.webcam.big') }}"
