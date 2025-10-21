@@ -3,8 +3,9 @@
 
    @php
         $timestamp = filemtime('images/tenelife.jpg');
+        $hour = date('H', $timestamp) + 1;
         $date = date('d. m. Y', $timestamp);
-        $time = date('H:i:s', $timestamp)
+        $time = date("$hour:i:s", $timestamp);
    @endphp
     
     <div class=" bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden  border border-gray-300 sm:p-6">
@@ -13,7 +14,13 @@
             
             <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-2xl">
 
-            <div class="absolute top-3 lg:top-5 left-3 lg:left-5  px-4 sm-px-8 py-2 sm:py-4 rounded-xl sm:rounded-2xl bg-black/40 text-sm sm:text-2xl text-white font-bold flex flex-col gap-y-1 items-center justify-center">
+            <div class="absolute top-3 lg:top-5 left-3 lg:left-5  
+                        px-3 sm-px-8 py-1 sm:py-4 
+                        rounded-xl sm:rounded-2xl 
+                        bg-black/40 
+                        text-xs sm:text-2xl text-white font-bold 
+                        flex flex-col gap-y-1 items-center justify-center 
+                        backdrop-blur-sm shadow-lg">
                 <p>{{ $date }}</p>
                 <p>{{ $time }}</p>
             </div>
@@ -22,7 +29,7 @@
           <!-- Lupa v pravém horním rohu -->
             <a href="{{ route('index.webcam.big') }}"
             class="absolute top-3 lg:top-5 right-3 lg:right-5 
-                 bg-black/60  
+                 bg-black/40 
                  hover:bg-white/50 
                  text-white 
                  hover:text-black
