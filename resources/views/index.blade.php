@@ -3,7 +3,7 @@
 
    @php
         $timestamp = filemtime('images/tenelife.jpg');
-        $hour = date('H', $timestamp) + 1;
+        $hour = date('H', $timestamp);
         $date = date('d. m. Y', $timestamp);
         $time = date("$hour:i:s", $timestamp);
    @endphp
