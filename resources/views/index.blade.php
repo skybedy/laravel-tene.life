@@ -22,7 +22,7 @@
                         flex flex-col gap-y-1 items-left justify-center 
                         backdrop-blur-sm shadow-lg">
                 <p class="underline">{{ $date }}, {{ $time }} </p>
-                <p>Teplota - {{ $weatherData['temperature'] }} °C</p>
+                 <p>Teplota - {{ round($weatherData['temperature'],1) }} °C</p>
                 <p>Tlak - {{ round($weatherData['pressure'],1) }} hPa</p>
                 <p>Vlhkost - {{ $weatherData['humidity'] }} %</p>
             </div>
