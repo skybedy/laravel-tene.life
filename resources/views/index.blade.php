@@ -5,7 +5,7 @@
         $timestamp = filemtime('images/tenelife.jpg');
         $hour = date('H', $timestamp);
         $date = date('d. m. Y', $timestamp);
-        $time = date("$hour:i:s", $timestamp);
+        $time = date("$hour:i", $timestamp);
    @endphp
     
     <div class=" bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden  border border-gray-300 sm:p-6">
@@ -19,10 +19,12 @@
                         rounded-xl sm:rounded-2xl 
                         bg-black/40 
                         text-xs sm:text-2xl text-white font-bold 
-                        flex flex-col gap-y-1 items-center justify-center 
+                        flex flex-col gap-y-1 items-left justify-center 
                         backdrop-blur-sm shadow-lg">
-                <p>{{ $date }}</p>
-                <p>{{ $time }}</p>
+                <p class="underline">{{ $date }}, {{ $time }} </p>
+                <p>Teplota - {{ $weatherData['temperature'] }} °C</p>
+                <p>Tlak - {{ round($weatherData['pressure'],1) }} hPa</p>
+                <p>Vlhkost - {{ $weatherData['humidity'] }} %</p>
             </div>
             
 

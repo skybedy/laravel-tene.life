@@ -8,12 +8,25 @@ class IndexController extends Controller
 {
     public function index()
     {
-       
-        return view('index');
+        return view('index',[
+            'weatherData' => $this->getWeatherData()
+        ]);
     }
 
-      public function webcamBig()
+    private function getWeatherData()
+    {
+        $rawData = file_get_contents(public_path('files/weather.json'));
+        $data = json_decode($rawData, true);
+        return $data;
+    }
+
+
+    public function webcamBig()
     {
         return view('webcam-big');
     }
+
+
+
+
 }
