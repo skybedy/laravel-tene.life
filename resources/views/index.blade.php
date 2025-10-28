@@ -24,7 +24,7 @@
                 <p class="underline">{{ $date }}, {{ $time }} </p>
                  <p>Teplota - {{ round($weatherData['temperature'],1) }} °C</p>
                 <p>Tlak - {{ round($weatherData['pressure'],1) }} hPa</p>
-                <p>Vlhkost - {{ $weatherData['humidity'] }} %</p>
+                <p>Vlhkost - {{ round($weatherData['humidity']) }} %</p>
             </div>
             
 
