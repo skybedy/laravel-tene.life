@@ -15,20 +15,16 @@
             <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-2xl">
 
             <div class="absolute top-3 lg:top-5 left-3 lg:left-5  
-                        px-3 sm:px-5 py-1 xl:py-4 
+                        px-3 sm-px-8 py-1 sm:py-4 
                         rounded-xl sm:rounded-2xl 
                         bg-black/40 
-                        text-xs md:text-sm lg:text-lg xl:text-xl 2xl:text-2xl text-white font-bold 
+                        text-xs md:text-2xl text-white font-bold 
                         flex flex-col gap-y-1 items-left justify-center 
                         backdrop-blur-sm shadow-lg">
                 <p class="underline">{{ $date }}, {{ $time }} </p>
-                @if($weatherData)
-                    <p>Teplota - {{ round($weatherData['temperature'],1) }} °C</p>
-                    <p>Tlak - {{ round($weatherData['pressure'],1) }} hPa</p>
-                    <p>Vlhkost - {{ round($weatherData['humidity']) }} %</p>
-                @else
-                    <p>Počasí je momentálně nedostupné</p>
-                @endif
+                 <p>Teplota - {{ round($weatherData['temperature'],1) }} °C</p>
+                <p>Tlak - {{ round($weatherData['pressure'],1) }} hPa</p>
+                <p>Vlhkost - {{ round($weatherData['humidity']) }} %</p>
             </div>
             
 
@@ -54,10 +50,8 @@
             <h2 class="text-sm sm:text-xl font-semibold mb-1">Webkamera – Tenerife, Los Cristianos</h2>
             <p class="text-gray-600 text-xs sm:text-lg">
                 Umístění: Avenida Ámsterdam<br>
-                Směr: severovýchod, výhled na Montaña el Mojón 250 m/nm a Roque de Ichasagua 1001, dále, úplně vpravo za stromem, na Morros del Viento 406 a při jasné obloze pak v pozadí i na Pico del Teide 3715, Pico Viejo 3135 a Alto de Guajara 2715.
+                Směr: severovýchod, výhled na Montaña el Mojón 250 m/nm a Roque de Ichasagua 1001, při dobré viditelnosti pak v pozadí i na Pico del Teide 3715, Pico Viejo 3135 a Alto de Guajara 2715.
             </p>
-            <hr class="my-4">
-            <p class="text-gray-600 text-xs sm:text-lg">Data o počasí nejsou odebírána z žádných globálních zdrojů, ale z vlastní meteostanice a teplotního čidla, umístěného cca 1 metr nad zemí, v celodenně zastíněném místě a bez dosahu přímého slunce.</p>
         </div>
     </div>
      </div>
