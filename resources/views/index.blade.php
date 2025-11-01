@@ -60,7 +60,37 @@
             <p class="text-gray-600 text-xs sm:text-lg">Data o počasí nejsou odebírána z žádných globálních zdrojů, ale z vlastní meteostanice a teplotního čidla, umístěného cca 1 metr nad zemí, v celodenně zastíněném místě a bez dosahu přímého slunce.</p>
         </div>
     </div>
+
+    <!-- Weather Charts Section -->
+    <div class="mt-6 space-y-6">
+        <!-- Temperature Chart -->
+        <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-4 sm:p-6">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4">Teplota (°C) - posledních 24 hodin</h2>
+            <div class="relative h-48 sm:h-64">
+                <canvas id="temperatureChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Pressure Chart -->
+        <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-4 sm:p-6">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4">Tlak (hPa) - posledních 24 hodin</h2>
+            <div class="relative h-48 sm:h-64">
+                <canvas id="pressureChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Humidity Chart -->
+        <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-4 sm:p-6">
+            <h2 class="text-lg sm:text-xl font-semibold mb-4">Vlhkost (%) - posledních 24 hodin</h2>
+            <div class="relative h-48 sm:h-64">
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+    </div>
+
      </div>
+
+    @vite(['resources/js/weather-charts.js'])
 </x-app-layout>
 
 
