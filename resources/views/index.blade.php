@@ -35,7 +35,7 @@
 
             <!-- Language Switcher - Top Right (left of magnifier) -->
             <div class="absolute top-2 sm:top-3 md:top-4 lg:top-5
-                        right-14 sm:right-16 md:right-18 lg:right-20
+                        right-2 sm:right-16 md:right-18 lg:right-20
                         bg-black/40 backdrop-blur-sm shadow-lg
                         rounded-lg sm:rounded-xl md:rounded-2xl
                         p-1 sm:p-1.5 md:p-2
@@ -79,7 +79,7 @@
 
             <!-- Lupa v pravém horním rohu -->
             <a href="{{ url(($currentLocale && $currentLocale !== 'cs' ? '/' . $currentLocale : '') . '/webcam/big') }}"
-               class="absolute top-10 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
+               class="absolute top-12 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
                       bg-black/40
                       hover:bg-white/50
                       text-white
