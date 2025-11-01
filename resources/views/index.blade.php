@@ -58,7 +58,7 @@
             </div>
 
             <!-- Lupa v pravém horním rohu -->
-            <a href="{{ route('index.webcam.big') }}"
+            <a href="{{ url(($currentLocale !== 'cs' ? '/' . $currentLocale : '') . '/webcam/big') }}"
                class="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
                       bg-black/40
                       hover:bg-white/50

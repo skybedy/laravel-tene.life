@@ -20,4 +20,7 @@ return [
     'temperature_chart' => 'Teplota (°C)',
     'pressure_chart' => 'Atmosférický tlak (hPa)',
     'humidity_chart' => 'Relativní vlhkost (%)',
+
+    // Navigation
+    'back' => 'Zpět',
 ];

@@ -20,4 +20,7 @@ return [
     'temperature_chart' => 'Temperatura (°C)',
     'pressure_chart' => 'Presión Atmosférica (hPa)',
     'humidity_chart' => 'Humedad Relativa (%)',
+
+    // Navigation
+    'back' => 'Volver',
 ];
