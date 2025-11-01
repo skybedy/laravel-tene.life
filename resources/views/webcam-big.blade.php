@@ -7,7 +7,7 @@
                 $currentLocale = app()->getLocale();
             @endphp
 
-            <a href="{{ url($currentLocale !== 'cs' ? '/' . $currentLocale : '/') }}"
+            <a href="{{ url(($currentLocale && $currentLocale !== 'cs' ? '/' . $currentLocale : '') . '/') }}"
                class="absolute top-3 lg:top-5 right-3 lg:right-5
                       bg-black/40
                       hover:bg-white/50

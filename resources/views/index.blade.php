@@ -40,7 +40,7 @@
                         rounded-lg sm:rounded-xl md:rounded-2xl
                         p-1 sm:p-1.5 md:p-2
                         flex gap-1 sm:gap-1.5 md:gap-2">
-                <a href="{{ url($currentLocale === 'cs' ? '/' : '/cs') }}"
+                <a href="{{ url('/cs') }}"
                    class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'cs' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
                    title="Čeština">
                     <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇨🇿</span>
@@ -60,8 +60,16 @@
                    title="Deutsch">
                     <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇩🇪</span>
                 </a>
- 
-
+                <a href="{{ url('/it') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'it' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Italiano">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇮🇹</span>
+                </a>
+                <a href="{{ url('/pl') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'pl' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Polski">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇵🇱</span>
+                </a>
                 <a href="{{ url('/hu') }}"
                    class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'hu' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
                    title="Magyar">
@@ -70,8 +78,8 @@
             </div>
 
             <!-- Lupa v pravém horním rohu -->
-            <a href="{{ url(($currentLocale !== 'cs' ? '/' . $currentLocale : '') . '/webcam/big') }}"
-               class="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
+            <a href="{{ url(($currentLocale && $currentLocale !== 'cs' ? '/' . $currentLocale : '') . '/webcam/big') }}"
+               class="absolute top-10 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
                       bg-black/40
                       hover:bg-white/50
                       text-white
