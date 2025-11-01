@@ -11,9 +11,9 @@
 
     <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6">
 
-        <div class="relative">
+        <div class="relative aspect-video">
 
-            <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl">
+            <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full h-full object-cover rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl">
 
             <!-- Weather Info Box - Top Left -->
             <div class="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 lg:top-5 lg:left-5
