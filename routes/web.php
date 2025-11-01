@@ -8,7 +8,7 @@ use App\Http\Controllers\WeatherController;
 Route::get('/api/weather/hourly', [WeatherController::class, 'getHourlyData'])->name('api.weather.hourly');
 
 // Routes with optional locale prefix
-Route::group(['prefix' => '{locale?}', 'where' => ['locale' => 'cs|en|es']], function () {
+Route::group(['prefix' => '{locale?}', 'where' => ['locale' => 'cs|en|es|de|it|pl|hu']], function () {
     Route::get('/', [IndexController::class, 'index'])->name('index.index');
     Route::get('/webcam/big', [IndexController::class, 'webcamBig'])->name('index.webcam.big');
 });

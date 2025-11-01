@@ -55,6 +55,26 @@
                    title="Español">
                     <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇪🇸</span>
                 </a>
+                <a href="{{ url('/de') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'de' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Deutsch">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇩🇪</span>
+                </a>
+                <a href="{{ url('/it') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'it' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Italiano">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇮🇹</span>
+                </a>
+                <a href="{{ url('/pl') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'pl' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Polski">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇵🇱</span>
+                </a>
+                <a href="{{ url('/hu') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'hu' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Magyar">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇭🇺</span>
+                </a>
             </div>
 
             <!-- Lupa v pravém horním rohu -->

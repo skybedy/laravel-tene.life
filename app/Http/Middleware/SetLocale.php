@@ -17,7 +17,7 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $supportedLocales = ['cs', 'en', 'es'];
+        $supportedLocales = ['cs', 'en', 'es', 'de', 'it', 'pl', 'hu'];
         $locale = $request->segment(1);
 
         // If locale is in URL and is supported, use it
