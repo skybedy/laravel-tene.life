@@ -12,7 +12,7 @@
 
         <div class="relative">
 
-            <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-lg sm:rounded-xl md:rounded-2xl">
+            <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl">
 
             <div class="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 lg:top-5 lg:left-5
                         px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-3 xl:py-4
@@ -50,7 +50,7 @@
             </a>
         </div>
 
-        <div class="p-3 sm:p-4 md:p-5 lg:p-6">
+        <div class="py-3 sm:py-4 md:py-5 lg:py-6">
             <h1 class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 text-gray-800">Webkamera – Tenerife, Los Cristianos</h1>
             <div class="space-y-2 sm:space-y-2.5 md:space-y-3">
                 <div>
