@@ -9,33 +9,13 @@
         $currentLocale = app()->getLocale();
    @endphp
 
-    <!-- Language Switcher -->
-    <div class="mb-3 sm:mb-4 flex justify-end">
-        <div class="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg border border-gray-200 p-1.5 sm:p-2 flex gap-1.5 sm:gap-2">
-            <a href="{{ url($currentLocale === 'cs' ? '/' : '/cs') }}"
-               class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded {{ $currentLocale === 'cs' ? 'bg-blue-600 ring-2 ring-blue-400' : 'bg-gray-100 hover:bg-gray-200' }} transition"
-               title="Čeština">
-                <span class="text-lg sm:text-xl md:text-2xl">🇨🇿</span>
-            </a>
-            <a href="{{ url('/en') }}"
-               class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded {{ $currentLocale === 'en' ? 'bg-blue-600 ring-2 ring-blue-400' : 'bg-gray-100 hover:bg-gray-200' }} transition"
-               title="English">
-                <span class="text-lg sm:text-xl md:text-2xl">🇬🇧</span>
-            </a>
-            <a href="{{ url('/es') }}"
-               class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded {{ $currentLocale === 'es' ? 'bg-blue-600 ring-2 ring-blue-400' : 'bg-gray-100 hover:bg-gray-200' }} transition"
-               title="Español">
-                <span class="text-lg sm:text-xl md:text-2xl">🇪🇸</span>
-            </a>
-        </div>
-    </div>
-
     <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6">
 
         <div class="relative">
 
             <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl">
 
+            <!-- Weather Info Box - Top Left -->
             <div class="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 lg:top-5 lg:left-5
                         px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-3 xl:py-4
                         rounded-lg sm:rounded-xl md:rounded-2xl
@@ -52,22 +32,46 @@
                     <p>{{ __('messages.weather_unavailable') }}</p>
                 @endif
             </div>
-            
 
-          <!-- Lupa v pravém horním rohu -->
+            <!-- Language Switcher - Top Right (left of magnifier) -->
+            <div class="absolute top-2 sm:top-3 md:top-4 lg:top-5
+                        right-14 sm:right-16 md:right-18 lg:right-20
+                        bg-black/40 backdrop-blur-sm shadow-lg
+                        rounded-lg sm:rounded-xl md:rounded-2xl
+                        p-1 sm:p-1.5 md:p-2
+                        flex gap-1 sm:gap-1.5 md:gap-2">
+                <a href="{{ url($currentLocale === 'cs' ? '/' : '/cs') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'cs' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Čeština">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇨🇿</span>
+                </a>
+                <a href="{{ url('/en') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'en' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="English">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇬🇧</span>
+                </a>
+                <a href="{{ url('/es') }}"
+                   class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'es' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
+                   title="Español">
+                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇪🇸</span>
+                </a>
+            </div>
+
+            <!-- Lupa v pravém horním rohu -->
             <a href="{{ route('index.webcam.big') }}"
-            class="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
-                 bg-black/40
-                 hover:bg-white/50
-                 text-white
-                 hover:text-black
-                p-1.5 sm:p-2 md:p-2.5
-                rounded-full
-                backdrop-blur-sm shadow-lg
-                transition">
+               class="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
+                      bg-black/40
+                      hover:bg-white/50
+                      text-white
+                      hover:text-black
+                       p-2 sm:p-2.5 md:p-3 xl:p-3.5
+                      rounded-full
+                      backdrop-blur-sm shadow-lg
+                      transition
+                      flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+                          d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
                 </svg>
             </a>
         </div>
