@@ -6,7 +6,29 @@
         $hour = date('H', $timestamp);
         $date = date('j. n. Y', $timestamp);
         $time = date("$hour:i", $timestamp);
+        $currentLocale = app()->getLocale();
    @endphp
+
+    <!-- Language Switcher -->
+    <div class="mb-3 sm:mb-4 flex justify-end">
+        <div class="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg border border-gray-200 p-1.5 sm:p-2 flex gap-1.5 sm:gap-2">
+            <a href="{{ url($currentLocale === 'cs' ? '/' : '/cs') }}"
+               class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded {{ $currentLocale === 'cs' ? 'bg-blue-600 ring-2 ring-blue-400' : 'bg-gray-100 hover:bg-gray-200' }} transition"
+               title="Čeština">
+                <span class="text-lg sm:text-xl md:text-2xl">🇨🇿</span>
+            </a>
+            <a href="{{ url('/en') }}"
+               class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded {{ $currentLocale === 'en' ? 'bg-blue-600 ring-2 ring-blue-400' : 'bg-gray-100 hover:bg-gray-200' }} transition"
+               title="English">
+                <span class="text-lg sm:text-xl md:text-2xl">🇬🇧</span>
+            </a>
+            <a href="{{ url('/es') }}"
+               class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center rounded {{ $currentLocale === 'es' ? 'bg-blue-600 ring-2 ring-blue-400' : 'bg-gray-100 hover:bg-gray-200' }} transition"
+               title="Español">
+                <span class="text-lg sm:text-xl md:text-2xl">🇪🇸</span>
+            </a>
+        </div>
+    </div>
 
     <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm overflow-hidden border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6">
 
@@ -23,11 +45,11 @@
                         backdrop-blur-sm shadow-lg">
                 <p class="underline">{{ $date }}, {{ $time }} </p>
                 @if($weatherData)
-                    <p>Teplota - {{ round($weatherData['temperature'],1) }} °C</p>
-                    <p>Tlak - {{ round($weatherData['pressure'],1) }} hPa</p>
-                    <p>Vlhkost - {{ round($weatherData['humidity']) }} %</p>
+                    <p>{{ __('messages.temperature') }} - {{ round($weatherData['temperature'],1) }} °C</p>
+                    <p>{{ __('messages.pressure') }} - {{ round($weatherData['pressure'],1) }} hPa</p>
+                    <p>{{ __('messages.humidity') }} - {{ round($weatherData['humidity']) }} %</p>
                 @else
-                    <p>Počasí je momentálně nedostupné</p>
+                    <p>{{ __('messages.weather_unavailable') }}</p>
                 @endif
             </div>
             
@@ -51,18 +73,18 @@
         </div>
 
         <div class="py-3 sm:py-4 md:py-5 lg:py-6">
-            <h1 class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 text-gray-800">Webkamera – Tenerife, Los Cristianos</h1>
+            <h1 class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 text-gray-800">{{ __('messages.webcam_title') }}</h1>
             <div class="space-y-2 sm:space-y-2.5 md:space-y-3">
                 <div>
-                    <h2 class="text-xs sm:text-sm md:text-base font-semibold text-gray-700 mb-1">Umístění a směr pohledu</h2>
+                    <h2 class="text-xs sm:text-sm md:text-base font-semibold text-gray-700 mb-1">{{ __('messages.location_heading') }}</h2>
                     <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base leading-relaxed">
-                        Avenida Ámsterdam, severovýchod – výhled na Montaña el Mojón 250 m/nm a Roque de Ichasagua 1001, dále, úplně vpravo za stromem, na Morros del Viento 406 a při jasné obloze pak v pozadí i na Pico del Teide 3715, Pico Viejo 3135 a Alto de Guajara 2715.
+                        {{ __('messages.location_description') }}
                     </p>
                 </div>
                 <div>
-                    <h2 class="text-xs sm:text-sm md:text-base font-semibold text-gray-700 mb-1">O zdroji meteorologických dat</h2>
+                    <h2 class="text-xs sm:text-sm md:text-base font-semibold text-gray-700 mb-1">{{ __('messages.weather_source_heading') }}</h2>
                     <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base leading-relaxed">
-                        Data o aktulální teplotě, tlaku a vlhkosti jsou odebírána z vlastní meteostanice a teplotního čidla v celodenně zastíněném místě, bez dosahu přímého slunce, takže se jedná čistě o hodnoty ve stínu.
+                        {{ __('messages.weather_source_description') }}
                     </p>
                 </div>
             </div>
@@ -72,13 +94,13 @@
     <!-- Weather Charts Section -->
     <div class="mt-4 sm:mt-6 md:mt-8 space-y-3 sm:space-y-4">
         <div class="px-1 sm:px-2">
-            <h1 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Meteorologická data</h1>
-            <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base">Grafy zobrazují hodinové průměry od půlnoci dnešního dne</p>
+            <h1 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">{{ __('messages.weather_data_title') }}</h1>
+            <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base">{{ __('messages.weather_data_subtitle') }}</p>
         </div>
 
         <!-- Temperature Chart -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6">
-            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">Teplota (°C)</h2>
+            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.temperature_chart') }}</h2>
             <div class="relative h-40 sm:h-48 md:h-56 lg:h-64">
                 <canvas id="temperatureChart"></canvas>
             </div>
@@ -86,7 +108,7 @@
 
         <!-- Pressure Chart -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6">
-            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">Atmosférický tlak (hPa)</h2>
+            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.pressure_chart') }}</h2>
             <div class="relative h-40 sm:h-48 md:h-56 lg:h-64">
                 <canvas id="pressureChart"></canvas>
             </div>
@@ -94,7 +116,7 @@
 
         <!-- Humidity Chart -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6">
-            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">Relativní vlhkost (%)</h2>
+            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.humidity_chart') }}</h2>
             <div class="relative h-40 sm:h-48 md:h-56 lg:h-64">
                 <canvas id="humidityChart"></canvas>
             </div>
