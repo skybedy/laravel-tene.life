@@ -33,53 +33,9 @@
                 @endif
             </div>
 
-            <!-- Language Switcher - Top Right (left of magnifier) -->
-            <div class="absolute top-2 sm:top-3 md:top-4 lg:top-5
-                        right-1 sm:right-16 md:right-18 lg:right-20
-                        bg-black/40 backdrop-blur-sm shadow-lg
-                        rounded-lg sm:rounded-xl md:rounded-2xl
-                        p-1 sm:p-1.5 md:p-2
-                        flex gap-1 sm:gap-1.5 md:gap-2">
-                <a href="{{ url('/cs') }}"
-                   class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'cs' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
-                   title="Čeština">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇨🇿</span>
-                </a>
-                <a href="{{ url('/en') }}"
-                   class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'en' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
-                   title="English">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇬🇧</span>
-                </a>
-                <a href="{{ url('/es') }}"
-                   class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'es' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
-                   title="Español">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇪🇸</span>
-                </a>
-                <a href="{{ url('/de') }}"
-                   class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'de' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
-                   title="Deutsch">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇩🇪</span>
-                </a>
-                <a href="{{ url('/it') }}"
-                   class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'it' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
-                   title="Italiano">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇮🇹</span>
-                </a>
-                <a href="{{ url('/pl') }}"
-                   class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'pl' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
-                   title="Polski">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇵🇱</span>
-                </a>
-                <a href="{{ url('/hu') }}"
-                   class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center rounded {{ $currentLocale === 'hu' ? 'bg-white/90' : 'bg-white/20 hover:bg-white/40' }} transition"
-                   title="Magyar">
-                    <span class="text-sm sm:text-base md:text-lg lg:text-xl">🇭🇺</span>
-                </a>
-            </div>
-
             <!-- Lupa v pravém horním rohu -->
             <a href="{{ url(($currentLocale && $currentLocale !== 'cs' ? '/' . $currentLocale : '') . '/webcam/big') }}"
-               class="absolute top-10 right-1 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
+               class="absolute top-2 right-1 sm:top-3 sm:right-3 md:top-4 md:right-4 lg:top-5 lg:right-5
                       bg-black/40
                       hover:bg-white/50
                       text-white
@@ -145,6 +101,7 @@
                 <canvas id="humidityChart"></canvas>
             </div>
         </div>
+
     </div>
 
      </div>
