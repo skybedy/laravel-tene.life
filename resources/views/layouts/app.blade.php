@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+dam to tam 
         <title>Tenerife | Los Cristianos | Webcam |</title>
 
         <!-- Fonts -->
@@ -53,9 +53,9 @@
         <!-- Navigation Menu -->
         <nav class="bg-white/30 backdrop-blur-sm border-b border-gray-300 shadow-sm relative z-50">
             <div class="mx-auto w-full sm:w-3/4 px-3 sm:px-4 md:px-6 lg:px-8">
-                <div class="flex items-center py-3 sm:pb-4">
+                <div class="flex items-center py-5 sm:pb-4">
                     <!-- Logo/Brand -->
-                    <div class="flex-shrink-0">
+                    <div class="flex-shrink-0 -mt-4 sm:-mt-5.5">
                         <a href="{{ url($localePrefix . '/') }}" class="block">
                             <img src="{{ asset('images/tenelife-logo.png') }}"
                                  alt="TeneLife Logo"
@@ -64,7 +64,7 @@
                     </div>
 
                     <!-- Navigation Links -->
-                    <div class="flex gap-2 sm:gap-4 md:gap-6 ml-4 sm:ml-6 md:ml-8 pt-5">
+                    <div class="flex gap-2 sm:gap-4 md:gap-6 ml-4 sm:ml-6 md:ml-8">
                         <a href="{{ url($localePrefix . '/') }}"
                            class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is($currentLocale . ($currentLocale === 'cs' ? '' : '*'), '/') && !request()->is('*/statistics') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
                             {{ __('messages.home') }}
@@ -76,7 +76,7 @@
                     </div>
 
                     <!-- Language Dropdown -->
-                    <div class="relative flex-shrink-0 ml-auto pt-5">
+                    <div class="relative flex-shrink-0 ml-auto">
                         <button id="languageDropdown" class="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 hover:bg-white/30 rounded-lg transition">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
