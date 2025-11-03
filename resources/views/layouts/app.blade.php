@@ -42,7 +42,7 @@
                     <!-- Logo/Brand -->
                     <div class="flex-shrink-0">
                         <a href="{{ url($localePrefix . '/') }}" class="block">
-                            <img src="{{ asset('images/tenelife-logo1.png') }}"
+                            <img src="{{ asset('images/tenelife-logo.png') }}"
                                  alt="TeneLife Logo"
                                  class="h-8 sm:h-10 md:h-12 w-auto">
                         </a>
