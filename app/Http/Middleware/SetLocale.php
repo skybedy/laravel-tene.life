@@ -25,14 +25,9 @@ class SetLocale
             App::setLocale($locale);
             Session::put('locale', $locale);
         } else {
-            // Try to get locale from session
-            $sessionLocale = Session::get('locale');
-            if ($sessionLocale && in_array($sessionLocale, $supportedLocales)) {
-                App::setLocale($sessionLocale);
-            } else {
-                // Default to Czech
-                App::setLocale('cs');
-            }
+            // No locale prefix means Czech (default)
+            App::setLocale('cs');
+            Session::put('locale', 'cs');
         }
 
         return $next($request);
