@@ -51,7 +51,7 @@ function initCharts() {
                 labels: [],
                 datasets: [
                     {
-                        label: 'Teplota',
+                        label: '',
                         data: [],
                         borderColor: 'rgb(239, 68, 68)',
                         backgroundColor: 'rgba(239, 68, 68, 0.1)',
@@ -66,10 +66,6 @@ function initCharts() {
                     ...chartOptions.scales,
                     y: {
                         ...chartOptions.scales.y,
-                        title: {
-                            display: true,
-                            text: 'Teplota (°C)',
-                        },
                     },
                 },
             },
@@ -83,7 +79,7 @@ function initCharts() {
                 labels: [],
                 datasets: [
                     {
-                        label: 'Tlak',
+                        label: '',
                         data: [],
                         borderColor: 'rgb(34, 197, 94)',
                         backgroundColor: 'rgba(34, 197, 94, 0.1)',
@@ -98,10 +94,6 @@ function initCharts() {
                     ...chartOptions.scales,
                     y: {
                         ...chartOptions.scales.y,
-                        title: {
-                            display: true,
-                            text: 'Tlak (hPa)',
-                        },
                     },
                 },
             },
@@ -115,7 +107,7 @@ function initCharts() {
                 labels: [],
                 datasets: [
                     {
-                        label: 'Vlhkost',
+                        label: '',
                         data: [],
                         borderColor: 'rgb(168, 85, 247)',
                         backgroundColor: 'rgba(168, 85, 247, 0.1)',
@@ -130,10 +122,6 @@ function initCharts() {
                     ...chartOptions.scales,
                     y: {
                         ...chartOptions.scales.y,
-                        title: {
-                            display: true,
-                            text: 'Vlhkost (%)',
-                        },
                         min: 0,
                         max: 100,
                     },
