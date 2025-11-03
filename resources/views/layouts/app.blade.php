@@ -109,6 +109,11 @@
                                 <span class="text-base sm:text-lg">🇭🇺</span>
                                 <span>Magyar</span>
                             </a>
+                            <a href="{{ url('/fr') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'fr' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇫🇷</span>
+                                <span>Français</span>
+                            </a>
                         </div>
                     </div>
                 </div>

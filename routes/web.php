@@ -9,7 +9,7 @@ Route::get('/api/weather/hourly', [WeatherController::class, 'getHourlyData'])->
 Route::get('/api/weather/daily', [WeatherController::class, 'getDailyData'])->name('api.weather.daily');
 
 // Routes with locale prefix
-Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'cs|en|es|de|it|pl|hu']], function () {
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'cs|en|es|de|it|pl|hu|fr']], function () {
     Route::get('/', [IndexController::class, 'index'])->name('index.index.locale');
     Route::get('/webcam/big', [IndexController::class, 'webcamBig'])->name('index.webcam.big.locale');
     Route::get('/statistics', [IndexController::class, 'statistics'])->name('index.statistics.locale');
