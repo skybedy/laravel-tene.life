@@ -33,6 +33,21 @@
         @php
             $currentLocale = app()->getLocale();
             $localePrefix = $currentLocale && $currentLocale !== 'cs' ? '/' . $currentLocale : '';
+
+            // Get current path without locale prefix
+            $currentPath = request()->path();
+            if ($currentLocale !== 'cs' && str_starts_with($currentPath, $currentLocale)) {
+                $currentPath = substr($currentPath, strlen($currentLocale) + 1) ?: '/';
+            }
+            $currentPath = '/' . ltrim($currentPath, '/');
+
+            // Function to generate locale URL
+            function getLocaleUrl($locale, $path) {
+                if ($locale === 'cs') {
+                    return url($path === '/' ? '/' : $path);
+                }
+                return url('/' . $locale . ($path === '/' ? '' : $path));
+            }
         @endphp
 
         <!-- Navigation Menu -->
@@ -74,42 +89,42 @@
 
                         <!-- Dropdown Menu -->
                         <div id="languageDropdownMenu" class="hidden absolute right-0 mt-2 w-40 sm:w-48 bg-white backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-[9999]">
-                            <a href="{{ url('/cs') }}"
+                            <a href="{{ getLocaleUrl('cs', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'cs' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇨🇿</span>
                                 <span>Čeština</span>
                             </a>
-                            <a href="{{ url('/en') }}"
+                            <a href="{{ getLocaleUrl('en', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'en' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇬🇧</span>
                                 <span>English</span>
                             </a>
-                            <a href="{{ url('/es') }}"
+                            <a href="{{ getLocaleUrl('es', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'es' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇪🇸</span>
                                 <span>Español</span>
                             </a>
-                            <a href="{{ url('/de') }}"
+                            <a href="{{ getLocaleUrl('de', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'de' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇩🇪</span>
                                 <span>Deutsch</span>
                             </a>
-                            <a href="{{ url('/it') }}"
+                            <a href="{{ getLocaleUrl('it', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'it' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇮🇹</span>
                                 <span>Italiano</span>
                             </a>
-                            <a href="{{ url('/pl') }}"
+                            <a href="{{ getLocaleUrl('pl', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'pl' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇵🇱</span>
                                 <span>Polski</span>
                             </a>
-                            <a href="{{ url('/hu') }}"
+                            <a href="{{ getLocaleUrl('hu', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'hu' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇭🇺</span>
                                 <span>Magyar</span>
                             </a>
-                            <a href="{{ url('/fr') }}"
+                            <a href="{{ getLocaleUrl('fr', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'fr' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇫🇷</span>
                                 <span>Français</span>
