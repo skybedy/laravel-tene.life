@@ -36,6 +36,7 @@ return [
     'weekly_statistics' => 'Týdenní statistiky',
     'monthly_statistics' => 'Měsíční statistiky',
     'date' => 'Datum',
+    'date_label' => 'Datum:',
     'week' => 'Týden',
     'month' => 'Měsíc',
     'period' => 'Období',
@@ -45,4 +46,7 @@ return [
     'avg_pressure' => 'Ø Tlak',
     'avg_humidity' => 'Ø Vlhkost',
     'no_data' => 'Zatím nejsou k dispozici žádná data',
+    'average' => 'Průměr:',
+    'min' => 'Min:',
+    'max' => 'Max:',
 ];

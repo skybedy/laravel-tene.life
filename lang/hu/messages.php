@@ -36,6 +36,7 @@ return [
     'weekly_statistics' => 'Heti Statisztikák',
     'monthly_statistics' => 'Havi Statisztikák',
     'date' => 'Dátum',
+    'date_label' => 'Dátum:',
     'week' => 'Hét',
     'month' => 'Hónap',
     'period' => 'Időszak',
@@ -45,4 +46,7 @@ return [
     'avg_pressure' => 'Átlag Légnyomás',
     'avg_humidity' => 'Átlag Páratartalom',
     'no_data' => 'Még nincsenek elérhető adatok',
+    'average' => 'Átlag:',
+    'min' => 'Min:',
+    'max' => 'Max:',
 ];

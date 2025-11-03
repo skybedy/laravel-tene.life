@@ -36,6 +36,7 @@ return [
     'weekly_statistics' => 'Weekly Statistics',
     'monthly_statistics' => 'Monthly Statistics',
     'date' => 'Date',
+    'date_label' => 'Date:',
     'week' => 'Week',
     'month' => 'Month',
     'period' => 'Period',
@@ -45,4 +46,7 @@ return [
     'avg_pressure' => 'Avg. Pressure',
     'avg_humidity' => 'Avg. Humidity',
     'no_data' => 'No data available yet',
+    'average' => 'Average:',
+    'min' => 'Min:',
+    'max' => 'Max:',
 ];

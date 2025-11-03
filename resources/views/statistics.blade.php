@@ -15,7 +15,7 @@
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6 mb-4 sm:mb-6">
             <!-- Date Picker -->
             <div>
-                <label for="selectedDate" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Datum:</label>
+                <label for="selectedDate" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">{{ __('messages.date_label') }}</label>
                 <input type="date"
                        id="selectedDate"
                        class="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -32,15 +32,15 @@
                 <h3 class="text-xs sm:text-sm font-semibold text-gray-700 mb-2">{{ __('messages.temperature_chart') }}</h3>
                 <div class="space-y-1 text-[0.65rem] sm:text-xs">
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Průměr:</span>
+                        <span class="text-gray-600">{{ __('messages.average') }}</span>
                         <span class="font-medium" id="stat-temp-avg">--</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Min:</span>
+                        <span class="text-gray-600">{{ __('messages.min') }}</span>
                         <span class="font-medium" id="stat-temp-min">--</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Max:</span>
+                        <span class="text-gray-600">{{ __('messages.max') }}</span>
                         <span class="font-medium" id="stat-temp-max">--</span>
                     </div>
                 </div>
@@ -51,15 +51,15 @@
                 <h3 class="text-xs sm:text-sm font-semibold text-gray-700 mb-2">{{ __('messages.pressure_chart') }}</h3>
                 <div class="space-y-1 text-[0.65rem] sm:text-xs">
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Průměr:</span>
+                        <span class="text-gray-600">{{ __('messages.average') }}</span>
                         <span class="font-medium" id="stat-pressure-avg">--</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Min:</span>
+                        <span class="text-gray-600">{{ __('messages.min') }}</span>
                         <span class="font-medium" id="stat-pressure-min">--</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Max:</span>
+                        <span class="text-gray-600">{{ __('messages.max') }}</span>
                         <span class="font-medium" id="stat-pressure-max">--</span>
                     </div>
                 </div>
@@ -70,15 +70,15 @@
                 <h3 class="text-xs sm:text-sm font-semibold text-gray-700 mb-2">{{ __('messages.humidity_chart') }}</h3>
                 <div class="space-y-1 text-[0.65rem] sm:text-xs">
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Průměr:</span>
+                        <span class="text-gray-600">{{ __('messages.average') }}</span>
                         <span class="font-medium" id="stat-humidity-avg">--</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Min:</span>
+                        <span class="text-gray-600">{{ __('messages.min') }}</span>
                         <span class="font-medium" id="stat-humidity-min">--</span>
                     </div>
                     <div class="flex justify-between">
-                        <span class="text-gray-600">Max:</span>
+                        <span class="text-gray-600">{{ __('messages.max') }}</span>
                         <span class="font-medium" id="stat-humidity-max">--</span>
                     </div>
                 </div>
