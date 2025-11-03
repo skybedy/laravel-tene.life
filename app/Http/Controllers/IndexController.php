@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\WeatherDaily;
+use App\Models\WeatherWeekly;
+use App\Models\WeatherMonthly;
 
 class IndexController extends Controller
 {
@@ -50,7 +53,29 @@ class IndexController extends Controller
         return view('webcam-big');
     }
 
+    public function statistics()
+    {
+        // Get daily statistics (last 30 days)
+        $dailyStats = WeatherDaily::orderBy('date', 'desc')
+            ->limit(30)
+            ->get();
 
+        // Get weekly statistics (last 12 weeks)
+        $weeklyStats = WeatherWeekly::orderBy('year', 'desc')
+            ->orderBy('week', 'desc')
+            ->limit(12)
+            ->get();
 
+        // Get monthly statistics (last 12 months)
+        $monthlyStats = WeatherMonthly::orderBy('year', 'desc')
+            ->orderBy('month', 'desc')
+            ->limit(12)
+            ->get();
 
+        return view('statistics', [
+            'dailyStats' => $dailyStats,
+            'weeklyStats' => $weeklyStats,
+            'monthlyStats' => $monthlyStats,
+        ]);
+    }
 }

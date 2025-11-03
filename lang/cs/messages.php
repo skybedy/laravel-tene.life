@@ -1,6 +1,10 @@
 <?php
 
 return [
+    // Navigation
+    'home' => 'Webkamera',
+    'statistics' => 'Rozšířené statistiky',
+
     // Webcam section
     'webcam_title' => 'Webkamera – Tenerife, Los Cristianos',
     'location_heading' => 'Umístění a směr pohledu',
@@ -23,4 +27,22 @@ return [
 
     // Navigation
     'back' => 'Zpět',
+    'view_statistics' => 'Zobrazit statistiky',
+
+    // Statistics page
+    'statistics_title' => 'Meteorologické statistiky',
+    'statistics_subtitle' => 'Dlouhodobé přehledy denních, týdenních a měsíčních průměrů',
+    'daily_statistics' => 'Denní statistiky',
+    'weekly_statistics' => 'Týdenní statistiky',
+    'monthly_statistics' => 'Měsíční statistiky',
+    'date' => 'Datum',
+    'week' => 'Týden',
+    'month' => 'Měsíc',
+    'period' => 'Období',
+    'avg_temp' => 'Ø Teplota',
+    'min_temp' => 'Min. teplota',
+    'max_temp' => 'Max. teplota',
+    'avg_pressure' => 'Ø Tlak',
+    'avg_humidity' => 'Ø Vlhkost',
+    'no_data' => 'Zatím nejsou k dispozici žádná data',
 ];

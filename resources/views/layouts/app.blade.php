@@ -30,6 +30,109 @@
         @endif
     </head>
     <body class="min-h-screen bg-gray-100">
+        @php
+            $currentLocale = app()->getLocale();
+            $localePrefix = $currentLocale && $currentLocale !== 'cs' ? '/' . $currentLocale : '';
+        @endphp
+
+        <!-- Navigation Menu -->
+        <nav class="bg-white/30 backdrop-blur-sm border-b border-gray-300 shadow-sm relative z-50">
+            <div class="mx-auto w-full sm:w-3/4 px-3 sm:px-4 md:px-6 lg:px-8">
+                <div class="flex items-center py-3 sm:pb-4">
+                    <!-- Logo/Brand -->
+                    <div class="flex-shrink-0">
+                        <a href="{{ url($localePrefix . '/') }}" class="block">
+                            <img src="{{ asset('images/tenelife-logo1.png') }}"
+                                 alt="TeneLife Logo"
+                                 class="h-8 sm:h-10 md:h-12 w-auto">
+                        </a>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="flex gap-2 sm:gap-4 md:gap-6 ml-4 sm:ml-6 md:ml-8 pt-5">
+                        <a href="{{ url($localePrefix . '/') }}"
+                           class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is($currentLocale . ($currentLocale === 'cs' ? '' : '*'), '/') && !request()->is('*/statistics') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
+                            {{ __('messages.home') }}
+                        </a>
+                        <a href="{{ url($localePrefix . '/statistics') }}"
+                           class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is('*/statistics', 'statistics') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
+                            {{ __('messages.statistics') }}
+                        </a>
+                    </div>
+
+                    <!-- Language Dropdown -->
+                    <div class="relative flex-shrink-0 ml-auto pt-5">
+                        <button id="languageDropdown" class="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 hover:bg-white/30 rounded-lg transition">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                            </svg>
+                            <span class="hidden sm:inline">{{ strtoupper($currentLocale) }}</span>
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div id="languageDropdownMenu" class="hidden absolute right-0 mt-2 w-40 sm:w-48 bg-white backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-[9999]">
+                            <a href="{{ url('/cs') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'cs' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇨🇿</span>
+                                <span>Čeština</span>
+                            </a>
+                            <a href="{{ url('/en') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'en' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇬🇧</span>
+                                <span>English</span>
+                            </a>
+                            <a href="{{ url('/es') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'es' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇪🇸</span>
+                                <span>Español</span>
+                            </a>
+                            <a href="{{ url('/de') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'de' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇩🇪</span>
+                                <span>Deutsch</span>
+                            </a>
+                            <a href="{{ url('/it') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'it' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇮🇹</span>
+                                <span>Italiano</span>
+                            </a>
+                            <a href="{{ url('/pl') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'pl' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇵🇱</span>
+                                <span>Polski</span>
+                            </a>
+                            <a href="{{ url('/hu') }}"
+                               class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'hu' ? 'bg-white/30 font-medium' : '' }}">
+                                <span class="text-base sm:text-lg">🇭🇺</span>
+                                <span>Magyar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <script>
+            // Language dropdown toggle
+            document.addEventListener('DOMContentLoaded', function() {
+                const dropdown = document.getElementById('languageDropdown');
+                const menu = document.getElementById('languageDropdownMenu');
+
+                dropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    menu.classList.toggle('hidden');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function() {
+                    menu.classList.add('hidden');
+                });
+            });
+        </script>
+
         <!-- Page Content -->
         <main>
             {{ $slot }}

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    // Navigation
+    'home' => 'Webkamera',
+    'statistics' => 'Bővített Statisztikák',
+
     // Webcam section
     'webcam_title' => 'Webkamera – Tenerife, Los Cristianos',
     'location_heading' => 'Helyszín és Nézeti Irány',
@@ -23,4 +27,22 @@ return [
 
     // Navigation
     'back' => 'Vissza',
+    'view_statistics' => 'Statisztikák Megtekintése',
+
+    // Statistics page
+    'statistics_title' => 'Meteorológiai Statisztikák',
+    'statistics_subtitle' => 'Hosszú távú áttekintés a napi, heti és havi átlagokról',
+    'daily_statistics' => 'Napi Statisztikák',
+    'weekly_statistics' => 'Heti Statisztikák',
+    'monthly_statistics' => 'Havi Statisztikák',
+    'date' => 'Dátum',
+    'week' => 'Hét',
+    'month' => 'Hónap',
+    'period' => 'Időszak',
+    'avg_temp' => 'Átlag Hőmérséklet',
+    'min_temp' => 'Min. Hőmérséklet',
+    'max_temp' => 'Max. Hőmérséklet',
+    'avg_pressure' => 'Átlag Légnyomás',
+    'avg_humidity' => 'Átlag Páratartalom',
+    'no_data' => 'Még nincsenek elérhető adatok',
 ];

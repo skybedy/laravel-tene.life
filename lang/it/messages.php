@@ -1,6 +1,10 @@
 <?php
 
 return [
+    // Navigation
+    'home' => 'Webcam',
+    'statistics' => 'Statistiche Estese',
+
     // Webcam section
     'webcam_title' => 'Webcam – Tenerife, Los Cristianos',
     'location_heading' => 'Posizione e Direzione della Vista',
@@ -23,4 +27,22 @@ return [
 
     // Navigation
     'back' => 'Indietro',
+    'view_statistics' => 'Visualizza Statistiche',
+
+    // Statistics page
+    'statistics_title' => 'Statistiche Meteorologiche',
+    'statistics_subtitle' => 'Panoramica a lungo termine delle medie giornaliere, settimanali e mensili',
+    'daily_statistics' => 'Statistiche Giornaliere',
+    'weekly_statistics' => 'Statistiche Settimanali',
+    'monthly_statistics' => 'Statistiche Mensili',
+    'date' => 'Data',
+    'week' => 'Settimana',
+    'month' => 'Mese',
+    'period' => 'Periodo',
+    'avg_temp' => 'Temperatura Media',
+    'min_temp' => 'Temperatura Minima',
+    'max_temp' => 'Temperatura Massima',
+    'avg_pressure' => 'Pressione Media',
+    'avg_humidity' => 'Umidità Media',
+    'no_data' => 'Nessun dato ancora disponibile',
 ];

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    // Navigation
+    'home' => 'Kamera',
+    'statistics' => 'Rozszerzone Statystyki',
+
     // Webcam section
     'webcam_title' => 'Kamera internetowa – Teneryfa, Los Cristianos',
     'location_heading' => 'Lokalizacja i Kierunek Widoku',
@@ -23,4 +27,22 @@ return [
 
     // Navigation
     'back' => 'Wstecz',
+    'view_statistics' => 'Wyświetl Statystyki',
+
+    // Statistics page
+    'statistics_title' => 'Statystyki Meteorologiczne',
+    'statistics_subtitle' => 'Długoterminowy przegląd średnich dziennych, tygodniowych i miesięcznych',
+    'daily_statistics' => 'Statystyki Dzienne',
+    'weekly_statistics' => 'Statystyki Tygodniowe',
+    'monthly_statistics' => 'Statystyki Miesięczne',
+    'date' => 'Data',
+    'week' => 'Tydzień',
+    'month' => 'Miesiąc',
+    'period' => 'Okres',
+    'avg_temp' => 'Średnia Temperatura',
+    'min_temp' => 'Min. Temperatura',
+    'max_temp' => 'Max. Temperatura',
+    'avg_pressure' => 'Średnie Ciśnienie',
+    'avg_humidity' => 'Średnia Wilgotność',
+    'no_data' => 'Brak dostępnych danych',
 ];
