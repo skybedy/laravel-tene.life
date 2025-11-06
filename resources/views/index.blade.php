@@ -4,7 +4,7 @@
    @php
         $timestamp = filemtime('images/tenelife.jpg');
         $hour = date('H', $timestamp);
-        $date = date('j. n. Y', $timestamp);
+        $date = date('j. m. y', $timestamp);
         $time = date("$hour:i", $timestamp);
         $currentLocale = app()->getLocale();
    @endphp
