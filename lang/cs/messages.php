@@ -13,7 +13,8 @@ return [
     // Weather section
     'weather_source_heading' => 'O zdroji meteorologických dat',
     'weather_source_description' => 'Data o aktuální teplotě, tlaku a vlhkosti jsou odebírána z vlastní meteostanice a teplotního čidla v celodenně zastíněném místě, bez dosahu přímého slunce, takže se jedná čistě o hodnoty ve stínu.',
-    'temperature' => 'Teplota',
+    'temperature' => 'Teplota vzduchu',
+    'sea_temperature' => 'Teplota moře',
     'pressure' => 'Tlak',
     'humidity' => 'Vlhkost',
     'weather_unavailable' => 'Počasí je momentálně nedostupné',

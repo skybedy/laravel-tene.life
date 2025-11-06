@@ -13,7 +13,8 @@ return [
     // Weather section
     'weather_source_heading' => 'À Propos de la Source des Données Météorologiques',
     'weather_source_description' => 'Les données sur la température, la pression et l\'humidité actuelles sont collectées à partir de notre propre station météorologique et capteur de température dans un endroit en permanence ombragé, sans lumière directe du soleil, il s\'agit donc de valeurs pures à l\'ombre.',
-    'temperature' => 'Température',
+    'temperature' => 'Température de l\'Air',
+    'sea_temperature' => 'Température de la Mer',
     'pressure' => 'Pression',
     'humidity' => 'Humidité',
     'weather_unavailable' => 'Les données météorologiques sont actuellement indisponibles',

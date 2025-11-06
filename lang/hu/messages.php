@@ -13,7 +13,8 @@ return [
     // Weather section
     'weather_source_heading' => 'Az Időjárási Adatok Forrásáról',
     'weather_source_description' => 'Az aktuális hőmérsékletről, légnyomásról és páratartalomról szóló adatok saját meteorológiai állomásunkról és hőmérséklet-érzékelőnkről származnak, amely állandóan árnyékolt helyen van, közvetlen napfény nélkül, ezért tiszta árnyékértékek.',
-    'temperature' => 'Hőmérséklet',
+    'temperature' => 'Levegő Hőmérséklet',
+    'sea_temperature' => 'Tenger Hőmérséklet',
     'pressure' => 'Légnyomás',
     'humidity' => 'Páratartalom',
     'weather_unavailable' => 'Az időjárási adatok jelenleg nem érhetők el',

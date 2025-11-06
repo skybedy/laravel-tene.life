@@ -13,7 +13,8 @@ return [
     // Weather section
     'weather_source_heading' => 'O Źródle Danych Pogodowych',
     'weather_source_description' => 'Dane o aktualnej temperaturze, ciśnieniu i wilgotności są zbierane z naszej własnej stacji meteorologicznej i czujnika temperatury w stale zacienionym miejscu, bez bezpośredniego działania słońca, więc są to czyste wartości w cieniu.',
-    'temperature' => 'Temperatura',
+    'temperature' => 'Temperatura Powietrza',
+    'sea_temperature' => 'Temperatura Morza',
     'pressure' => 'Ciśnienie',
     'humidity' => 'Wilgotność',
     'weather_unavailable' => 'Dane pogodowe są obecnie niedostępne',

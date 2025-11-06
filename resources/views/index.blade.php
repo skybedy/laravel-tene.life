@@ -25,9 +25,24 @@
                         backdrop-blur-sm shadow-lg">
                 <p class="underline">{{ $date }}, {{ $time }} </p>
                 @if($weatherData)
-                    <p>{{ __('messages.temperature') }} - {{ round($weatherData['temperature'],1) }} °C</p>
-                    <p>{{ __('messages.pressure') }} - {{ round($weatherData['pressure'],1) }} hPa</p>
-                    <p>{{ __('messages.humidity') }} - {{ round($weatherData['humidity']) }} %</p>
+                    <table class="w-full">
+                        <tr>
+                            <td class="pr-2">{{ __('messages.temperature') }}</td>
+                            <td class="text-right">{{ round($weatherData['temperature'],1) }} °C</td>
+                        </tr>
+                        <tr>
+                            <td class="pr-2">{{ __('messages.pressure') }}</td>
+                            <td class="text-right">{{ round($weatherData['pressure'],1) }} hPa</td>
+                        </tr>
+                        <tr>
+                            <td class="pr-2">{{ __('messages.humidity') }}</td>
+                            <td class="text-right">{{ round($weatherData['humidity']) }} %</td>
+                        </tr>
+                        <tr class="border-t border-white/30">
+                            <td class="pr-2 pt-1">{{ __('messages.sea_temperature') }}</td>
+                            <td class="text-right pt-1">23.5 °C</td>
+                        </tr>
+                    </table>
                 @else
                     <p>{{ __('messages.weather_unavailable') }}</p>
                 @endif

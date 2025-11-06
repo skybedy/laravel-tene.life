@@ -13,7 +13,8 @@ return [
     // Weather section
     'weather_source_heading' => 'About Weather Data Source',
     'weather_source_description' => 'Data on current temperature, pressure and humidity are collected from our own weather station and temperature sensor in a permanently shaded location, without direct sunlight, so these are pure shade values.',
-    'temperature' => 'Temperature',
+    'temperature' => 'Air Temperature',
+    'sea_temperature' => 'Sea Temperature',
     'pressure' => 'Pressure',
     'humidity' => 'Humidity',
     'weather_unavailable' => 'Weather data is currently unavailable',

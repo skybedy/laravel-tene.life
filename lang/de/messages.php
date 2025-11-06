@@ -13,7 +13,8 @@ return [
     // Weather section
     'weather_source_heading' => 'Über die Wetterdatenquelle',
     'weather_source_description' => 'Daten zu aktueller Temperatur, Luftdruck und Luftfeuchtigkeit werden von unserer eigenen Wetterstation und einem Temperatursensor an einem dauerhaft beschatteten Ort ohne direkte Sonneneinstrahlung gesammelt, es handelt sich also um reine Schattenwerte.',
-    'temperature' => 'Temperatur',
+    'temperature' => 'Lufttemperatur',
+    'sea_temperature' => 'Meerestemperatur',
     'pressure' => 'Luftdruck',
     'humidity' => 'Luftfeuchtigkeit',
     'weather_unavailable' => 'Wetterdaten sind derzeit nicht verfügbar',
