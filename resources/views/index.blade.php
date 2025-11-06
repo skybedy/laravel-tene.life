@@ -23,7 +23,7 @@
                         text-[0.65rem] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white font-bold
                         flex flex-col gap-y-0.5 sm:gap-y-1 items-left justify-center
                         backdrop-blur-sm shadow-lg">
-                <p class="underline">{{ $date }}, {{ $time }} </p>
+                <p class="underline">{{ $date }} - {{ $time }} </p>
                 @if($weatherData)
                     <table class="w-full">
                         <tr>
