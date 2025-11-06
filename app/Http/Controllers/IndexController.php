@@ -12,10 +12,12 @@ class IndexController extends Controller
     public function index()
     {
         $weatherData = $this->getWeatherData();
+        $seaTemperature = $this->getSeaTemperature();
 
         return view('index',[
             'weatherData' => $weatherData,
-            'weatherTimestamp' => $weatherData ? $this->getWeatherTimestamp() : null
+            'weatherTimestamp' => $weatherData ? $this->getWeatherTimestamp() : null,
+            'seaTemperature' => $seaTemperature
         ]);
     }
 
@@ -44,6 +46,25 @@ class IndexController extends Controller
         }
 
         return filemtime($filePath);
+    }
+
+    private function getSeaTemperature()
+    {
+        // Try to get today's sea temperature first
+        $today = WeatherDaily::whereDate('date', today())
+            ->whereNotNull('sea_temperature')
+            ->first();
+
+        if ($today && $today->sea_temperature) {
+            return $today->sea_temperature;
+        }
+
+        // If not found, get the most recent sea temperature
+        $latest = WeatherDaily::whereNotNull('sea_temperature')
+            ->orderBy('date', 'desc')
+            ->first();
+
+        return $latest ? $latest->sea_temperature : null;
     }
 
 

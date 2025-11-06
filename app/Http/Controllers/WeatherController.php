@@ -86,6 +86,7 @@ class WeatherController extends Controller
         $maxTemp = [];
         $avgPressure = [];
         $avgHumidity = [];
+        $seaTemp = [];
 
         foreach ($data as $record) {
             $labels[] = $record->date->format('j.n.');
@@ -94,6 +95,7 @@ class WeatherController extends Controller
             $maxTemp[] = (float) $record->max_temperature;
             $avgPressure[] = (float) $record->avg_pressure;
             $avgHumidity[] = (float) $record->avg_humidity;
+            $seaTemp[] = $record->sea_temperature ? (float) $record->sea_temperature : null;
         }
 
         return response()->json([
@@ -104,6 +106,7 @@ class WeatherController extends Controller
                 'max_temperature' => $maxTemp,
                 'avg_pressure' => $avgPressure,
                 'avg_humidity' => $avgHumidity,
+                'sea_temperature' => $seaTemp,
             ],
             'statistics' => [
                 'temperature' => [
@@ -117,7 +120,53 @@ class WeatherController extends Controller
                 'humidity' => [
                     'avg' => count($avgHumidity) > 0 ? round(array_sum($avgHumidity) / count($avgHumidity)) : 0,
                 ],
+                'sea_temperature' => [
+                    'avg' => count(array_filter($seaTemp)) > 0 ? round(array_sum(array_filter($seaTemp)) / count(array_filter($seaTemp)), 1) : null,
+                ],
             ],
+        ]);
+    }
+
+    /**
+     * Store or update sea temperature for a specific date
+     */
+    public function storeSeaTemperature(Request $request)
+    {
+        $validated = $request->validate([
+            'date' => 'required|date_format:Y-m-d',
+            'temperature' => 'required|numeric|min:-10|max:50',
+        ]);
+
+        $date = $validated['date'];
+        $temperature = round($validated['temperature'], 1);
+
+        // Find or create the daily record
+        $daily = WeatherDaily::firstOrNew(['date' => $date]);
+        $daily->sea_temperature = $temperature;
+        $daily->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Sea temperature saved successfully',
+            'data' => [
+                'date' => $date,
+                'sea_temperature' => $temperature,
+            ],
+        ]);
+    }
+
+    /**
+     * Get sea temperature for a specific date
+     */
+    public function getSeaTemperature(Request $request)
+    {
+        $date = $request->input('date', Carbon::today()->format('Y-m-d'));
+
+        $daily = WeatherDaily::where('date', $date)->first();
+
+        return response()->json([
+            'date' => $date,
+            'sea_temperature' => $daily ? $daily->sea_temperature : null,
         ]);
     }
 }

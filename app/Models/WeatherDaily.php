@@ -10,6 +10,7 @@ class WeatherDaily extends Model
 
     protected $fillable = [
         'date',
+        'sea_temperature',
         'avg_temperature',
         'min_temperature',
         'max_temperature',
@@ -24,6 +25,7 @@ class WeatherDaily extends Model
 
     protected $casts = [
         'date' => 'date',
+        'sea_temperature' => 'float',
         'avg_temperature' => 'float',
         'min_temperature' => 'float',
         'max_temperature' => 'float',

@@ -40,7 +40,13 @@
                         </tr>
                         <tr class="border-t border-white/30">
                             <td class="pr-2 pt-1">{{ __('messages.sea_temperature') }}</td>
-                            <td class="text-right pt-1">23.5 °C</td>
+                            <td class="text-right pt-1">
+                                @if($seaTemperature)
+                                    {{ number_format($seaTemperature, 1) }} °C
+                                @else
+                                    -
+                                @endif
+                            </td>
                         </tr>
                     </table>
                 @else

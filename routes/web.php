@@ -7,6 +7,8 @@ use App\Http\Controllers\WeatherController;
 // API endpoints for weather data (no locale prefix)
 Route::get('/api/weather/hourly', [WeatherController::class, 'getHourlyData'])->name('api.weather.hourly');
 Route::get('/api/weather/daily', [WeatherController::class, 'getDailyData'])->name('api.weather.daily');
+Route::get('/api/weather/sea-temperature', [WeatherController::class, 'getSeaTemperature'])->name('api.weather.sea-temperature.get');
+Route::post('/api/weather/sea-temperature', [WeatherController::class, 'storeSeaTemperature'])->name('api.weather.sea-temperature.store');
 
 // Routes with locale prefix
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'cs|en|es|de|it|pl|hu|fr']], function () {
