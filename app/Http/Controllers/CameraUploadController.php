@@ -12,11 +12,16 @@ class CameraUploadController extends Controller
      */
     public function upload(Request $request)
     {
-        // Autentizace pomocí Bearer tokenu
-        $token = $request->bearerToken();
-        $expectedToken = env('CAMERA_API_TOKEN');
+        // Autentizace pomocí HTTP Basic Auth
+        $username = $request->getUser();
+        $password = $request->getPassword();
 
-        if (!$token || $token !== $expectedToken) {
+        $expectedUsername = env('CAMERA_USERNAME');
+        $expectedPassword = env('CAMERA_PASSWORD');
+
+        if (!$username || !$password ||
+            $username !== $expectedUsername ||
+            $password !== $expectedPassword) {
             return response()->json([
                 'success' => false,
                 'error' => 'Unauthorized'
