@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tenerife | Los Cristianos | Webcam |</title>
+        <title>Tenerife | Los Cristianos | Webcam | Current Weather | Weather Statistics</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

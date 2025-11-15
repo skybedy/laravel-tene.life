@@ -37,9 +37,9 @@ class WeatherController extends Controller
 
         foreach ($data as $record) {
             $labels[] = sprintf('%02d:00', $record->hour);
-            $temperatures[] = (float) $record->avg_temperature;
-            $pressures[] = (float) $record->avg_pressure;
-            $humidities[] = (float) $record->avg_humidity;
+            $temperatures[] = round((float) $record->avg_temperature, 1);
+            $pressures[] = round((float) $record->avg_pressure, 1);
+            $humidities[] = round((float) $record->avg_humidity, 1);
         }
 
         return response()->json([
@@ -90,12 +90,12 @@ class WeatherController extends Controller
 
         foreach ($data as $record) {
             $labels[] = $record->date->format('j.n.');
-            $avgTemp[] = (float) $record->avg_temperature;
-            $minTemp[] = (float) $record->min_temperature;
-            $maxTemp[] = (float) $record->max_temperature;
-            $avgPressure[] = (float) $record->avg_pressure;
-            $avgHumidity[] = (float) $record->avg_humidity;
-            $seaTemp[] = $record->sea_temperature ? (float) $record->sea_temperature : null;
+            $avgTemp[] = round((float) $record->avg_temperature, 1);
+            $minTemp[] = round((float) $record->min_temperature, 1);
+            $maxTemp[] = round((float) $record->max_temperature, 1);
+            $avgPressure[] = round((float) $record->avg_pressure, 1);
+            $avgHumidity[] = round((float) $record->avg_humidity, 1);
+            $seaTemp[] = $record->sea_temperature ? round((float) $record->sea_temperature, 1) : null;
         }
 
         return response()->json([

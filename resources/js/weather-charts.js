@@ -65,7 +65,7 @@ function updateTemperatureChart(labels, data) {
                     intersect: false,
                     callbacks: {
                         label: function(context) {
-                            return `${context.parsed.y} °C`;
+                            return `${context.parsed.y.toFixed(1)} °C`;
                         }
                     }
                 }
@@ -87,7 +87,7 @@ function updateTemperatureChart(labels, data) {
                     },
                     ticks: {
                         callback: function(value) {
-                            return value + ' °C';
+                            return value.toFixed(1) + ' °C';
                         }
                     }
                 }
@@ -132,7 +132,7 @@ function updatePressureChart(labels, data) {
                     intersect: false,
                     callbacks: {
                         label: function(context) {
-                            return `${context.parsed.y} hPa`;
+                            return `${context.parsed.y.toFixed(1)} hPa`;
                         }
                     }
                 }
@@ -154,7 +154,7 @@ function updatePressureChart(labels, data) {
                     },
                     ticks: {
                         callback: function(value) {
-                            return value + ' hPa';
+                            return value.toFixed(1) + ' hPa';
                         }
                     }
                 }
@@ -199,7 +199,7 @@ function updateHumidityChart(labels, data) {
                     intersect: false,
                     callbacks: {
                         label: function(context) {
-                            return `${context.parsed.y} %`;
+                            return `${context.parsed.y.toFixed(1)} %`;
                         }
                     }
                 }
@@ -222,7 +222,7 @@ function updateHumidityChart(labels, data) {
                     },
                     ticks: {
                         callback: function(value) {
-                            return value + ' %';
+                            return value.toFixed(1) + ' %';
                         }
                     }
                 }
