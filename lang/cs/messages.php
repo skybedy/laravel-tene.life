@@ -50,4 +50,28 @@ return [
     'average' => 'Průměr:',
     'min' => 'Min:',
     'max' => 'Max:',
+
+    // Monthly statistics
+    'hourly_date_label' => 'Datum (hodinové grafy):',
+    'monthly_date_label' => 'Měsíc (denní grafy):',
+    'monthly_statistics_title' => 'Měsíční denní statistiky',
+    'monthly_statistics_subtitle' => 'Denní průměry pro vybraný měsíc (data od listopadu 2025)',
+    'monthly_temperature_chart' => 'Průměrná teplota v měsíci (°C)',
+    'monthly_pressure_chart' => 'Průměrný tlak v měsíci (hPa)',
+    'monthly_humidity_chart' => 'Průměrná vlhkost v měsíci (%)',
+    'monthly_sea_temperature_chart' => 'Teplota moře v měsíci (°C)',
+
+    // Month names
+    'month_1' => 'Leden',
+    'month_2' => 'Únor',
+    'month_3' => 'Březen',
+    'month_4' => 'Duben',
+    'month_5' => 'Květen',
+    'month_6' => 'Červen',
+    'month_7' => 'Červenec',
+    'month_8' => 'Srpen',
+    'month_9' => 'Září',
+    'month_10' => 'Říjen',
+    'month_11' => 'Listopad',
+    'month_12' => 'Prosinec',
 ];

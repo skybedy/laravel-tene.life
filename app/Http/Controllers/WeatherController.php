@@ -169,4 +169,74 @@ class WeatherController extends Controller
             'sea_temperature' => $daily ? $daily->sea_temperature : null,
         ]);
     }
+
+    /**
+     * Get monthly daily statistics (each day of the month)
+     */
+    public function getMonthlyDailyData(Request $request)
+    {
+        $year = $request->input('year', Carbon::now()->year);
+        $month = $request->input('month', Carbon::now()->month);
+
+        // Only allow data from November 2025 onwards
+        $requestedDate = Carbon::create($year, $month, 1);
+        $minDate = Carbon::create(2025, 11, 1);
+
+        if ($requestedDate->lt($minDate)) {
+            return response()->json([
+                'labels' => [],
+                'datasets' => [
+                    'avg_temperature' => [],
+                    'avg_pressure' => [],
+                    'avg_humidity' => [],
+                    'sea_temperature' => [],
+                ],
+                'message' => 'Data available from November 2025 onwards',
+            ]);
+        }
+
+        $startDate = Carbon::create($year, $month, 1);
+        $endDate = $startDate->copy()->endOfMonth();
+
+        $data = WeatherDaily::whereBetween('date', [$startDate, $endDate])
+            ->orderBy('date', 'asc')
+            ->get();
+
+        $labels = [];
+        $avgTemp = [];
+        $avgPressure = [];
+        $avgHumidity = [];
+        $seaTemp = [];
+
+        // Create array with all days of the month
+        $daysInMonth = $endDate->day;
+        for ($day = 1; $day <= $daysInMonth; $day++) {
+            $labels[] = $day;
+
+            // Find data for this day
+            $dayData = $data->firstWhere('date', $startDate->copy()->day($day));
+
+            if ($dayData) {
+                $avgTemp[] = $dayData->avg_temperature ? round((float) $dayData->avg_temperature, 1) : null;
+                $avgPressure[] = $dayData->avg_pressure ? round((float) $dayData->avg_pressure, 1) : null;
+                $avgHumidity[] = $dayData->avg_humidity ? round((float) $dayData->avg_humidity, 1) : null;
+                $seaTemp[] = $dayData->sea_temperature ? round((float) $dayData->sea_temperature, 1) : null;
+            } else {
+                $avgTemp[] = null;
+                $avgPressure[] = null;
+                $avgHumidity[] = null;
+                $seaTemp[] = null;
+            }
+        }
+
+        return response()->json([
+            'labels' => $labels,
+            'datasets' => [
+                'avg_temperature' => $avgTemp,
+                'avg_pressure' => $avgPressure,
+                'avg_humidity' => $avgHumidity,
+                'sea_temperature' => $seaTemp,
+            ],
+        ]);
+    }
 }

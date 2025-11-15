@@ -50,4 +50,28 @@ return [
     'average' => 'Moyenne :',
     'min' => 'Min :',
     'max' => 'Max :',
+
+    // Monthly statistics
+    'hourly_date_label' => 'Date (graphiques horaires) :',
+    'monthly_date_label' => 'Mois (graphiques quotidiens) :',
+    'monthly_statistics_title' => 'Statistiques Quotidiennes Mensuelles',
+    'monthly_statistics_subtitle' => 'Moyennes quotidiennes pour le mois sélectionné (données depuis novembre 2025)',
+    'monthly_temperature_chart' => 'Température Moyenne du Mois (°C)',
+    'monthly_pressure_chart' => 'Pression Moyenne du Mois (hPa)',
+    'monthly_humidity_chart' => 'Humidité Moyenne du Mois (%)',
+    'monthly_sea_temperature_chart' => 'Température de la Mer dans le Mois (°C)',
+
+    // Month names
+    'month_1' => 'Janvier',
+    'month_2' => 'Février',
+    'month_3' => 'Mars',
+    'month_4' => 'Avril',
+    'month_5' => 'Mai',
+    'month_6' => 'Juin',
+    'month_7' => 'Juillet',
+    'month_8' => 'Août',
+    'month_9' => 'Septembre',
+    'month_10' => 'Octobre',
+    'month_11' => 'Novembre',
+    'month_12' => 'Décembre',
 ];
