@@ -13,6 +13,7 @@ return [
     // Weather section
     'weather_source_heading' => 'About Weather Data Source',
     'weather_source_description' => 'Data on current temperature, pressure and humidity are collected from our own weather station and temperature sensor in a permanently shaded location, without direct sunlight, so these are pure shade values.',
+    'hobby_disclaimer' => 'Please also note that the weather information provided here is only a hobby project with data obtained using amateur meteorological equipment and methods, without any ambition to compete with traditional meteorological sources.',
     'temperature' => 'Air Temperature',
     'sea_temperature' => 'Sea Temperature',
     'pressure' => 'Pressure',
@@ -32,7 +33,7 @@ return [
 
     // Statistics page
     'statistics_title' => 'Meteorological Statistics',
-    'statistics_subtitle' => 'Long-term overview of daily, weekly and monthly averages',
+    'statistics_subtitle' => 'Long-term overview of daily, weekly and monthly averages, based on data from the beginning of November 2025',
     'daily_statistics' => 'Daily Statistics',
     'weekly_statistics' => 'Weekly Statistics',
     'monthly_statistics' => 'Monthly Statistics',

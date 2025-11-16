@@ -87,7 +87,15 @@
                     <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base leading-relaxed">
                         {{ __('messages.weather_source_description') }}
                     </p>
+                    ---
+                     <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base leading-relaxed font-black">
+                        {{ __('messages.hobby_disclaimer') }}
+                    </p>
                 </div>
+                                
+                   
+                   
+                
             </div>
         </div>
     </div>

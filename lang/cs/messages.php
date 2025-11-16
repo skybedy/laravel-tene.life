@@ -13,6 +13,7 @@ return [
     // Weather section
     'weather_source_heading' => 'O zdroji meteorologických dat',
     'weather_source_description' => 'Data o aktuální teplotě, tlaku a vlhkosti jsou odebírána z vlastní meteostanice a teplotního čidla v celodenně zastíněném místě, bez dosahu přímého slunce, takže se jedná čistě o hodnoty ve stínu.',
+    'hobby_disclaimer' => 'Vezměte prosím také na vědomí, že informace o počasí zde uváděné jsou pouze hobby projektem s daty získávanými amatérskou meteorologickou technikou a metodami, bez jakýchkoliv ambicí konkurovat tradičním meteorologickým zdrojům.',
     'temperature' => 'Teplota vzduchu',
     'sea_temperature' => 'Teplota moře',
     'pressure' => 'Tlak',
@@ -32,7 +33,7 @@ return [
 
     // Statistics page
     'statistics_title' => 'Meteorologické statistiky',
-    'statistics_subtitle' => 'Dlouhodobé přehledy denních, týdenních a měsíčních průměrů',
+    'statistics_subtitle' => 'Dlouhodobé přehledy denních, týdenních a měsíčních průměrů, založené na datech od začátku listopadu 2025',
     'daily_statistics' => 'Denní statistiky',
     'weekly_statistics' => 'Týdenní statistiky',
     'monthly_statistics' => 'Měsíční statistiky',
