@@ -13,6 +13,7 @@ return [
     // Weather section
     'weather_source_heading' => 'O Źródle Danych Pogodowych',
     'weather_source_description' => 'Dane o aktualnej temperaturze, ciśnieniu i wilgotności są zbierane z naszej własnej stacji meteorologicznej i czujnika temperatury w stale zacienionym miejscu, bez bezpośredniego działania słońca, więc są to czyste wartości w cieniu.',
+    'hobby_disclaimer' => 'Proszę również zauważyć, że informacje pogodowe podane tutaj to tylko projekt hobbystyczny z danymi uzyskanymi przy użyciu amatorskiego sprzętu meteorologicznego i metod, bez żadnych ambicji konkurowania z tradycyjnymi źródłami meteorologicznymi.',
     'temperature' => 'Temperatura Powietrza',
     'sea_temperature' => 'Temperatura Morza',
     'pressure' => 'Ciśnienie',
@@ -32,7 +33,7 @@ return [
 
     // Statistics page
     'statistics_title' => 'Statystyki Meteorologiczne',
-    'statistics_subtitle' => 'Długoterminowy przegląd średnich dziennych, tygodniowych i miesięcznych',
+    'statistics_subtitle' => 'Długoterminowy przegląd średnich dziennych, tygodniowych i miesięcznych, oparty na danych od początku listopada 2025',
     'daily_statistics' => 'Statystyki Dzienne',
     'weekly_statistics' => 'Statystyki Tygodniowe',
     'monthly_statistics' => 'Statystyki Miesięczne',

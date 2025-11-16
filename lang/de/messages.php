@@ -13,6 +13,7 @@ return [
     // Weather section
     'weather_source_heading' => 'Über die Wetterdatenquelle',
     'weather_source_description' => 'Daten zu aktueller Temperatur, Luftdruck und Luftfeuchtigkeit werden von unserer eigenen Wetterstation und einem Temperatursensor an einem dauerhaft beschatteten Ort ohne direkte Sonneneinstrahlung gesammelt, es handelt sich also um reine Schattenwerte.',
+    'hobby_disclaimer' => 'Bitte beachten Sie auch, dass die hier bereitgestellten Wetterinformationen nur ein Hobbyprojekt mit Daten sind, die mithilfe von Amateur-Wettergeräten und -methoden gewonnen wurden, ohne jegliche Ambition, mit traditionellen meteorologischen Quellen zu konkurrieren.',
     'temperature' => 'Lufttemperatur',
     'sea_temperature' => 'Meerestemperatur',
     'pressure' => 'Luftdruck',
@@ -32,7 +33,7 @@ return [
 
     // Statistics page
     'statistics_title' => 'Meteorologische Statistiken',
-    'statistics_subtitle' => 'Langfristige Übersicht der täglichen, wöchentlichen und monatlichen Durchschnittswerte',
+    'statistics_subtitle' => 'Langfristige Übersicht der täglichen, wöchentlichen und monatlichen Durchschnittswerte, basierend auf Daten seit Anfang November 2025',
     'daily_statistics' => 'Tägliche Statistiken',
     'weekly_statistics' => 'Wöchentliche Statistiken',
     'monthly_statistics' => 'Monatliche Statistiken',

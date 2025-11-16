@@ -13,6 +13,7 @@ return [
     // Weather section
     'weather_source_heading' => 'Az Időjárási Adatok Forrásáról',
     'weather_source_description' => 'Az aktuális hőmérsékletről, légnyomásról és páratartalomról szóló adatok saját meteorológiai állomásunkról és hőmérséklet-érzékelőnkről származnak, amely állandóan árnyékolt helyen van, közvetlen napfény nélkül, ezért tiszta árnyékértékek.',
+    'hobby_disclaimer' => 'Kérjük, vegye figyelembe azt is, hogy az itt megadott időjárási információk csak egy hobbi projekt, amely amatőr meteorológiai eszközökkel és módszerekkel gyűjtött adatokkal dolgozik, anélkül, hogy bármilyen ambíciója lenne a hagyományos meteorológiai forrásokkal való versenyzésre.',
     'temperature' => 'Levegő Hőmérséklet',
     'sea_temperature' => 'Tenger Hőmérséklet',
     'pressure' => 'Légnyomás',
@@ -32,7 +33,7 @@ return [
 
     // Statistics page
     'statistics_title' => 'Meteorológiai Statisztikák',
-    'statistics_subtitle' => 'Hosszú távú áttekintés a napi, heti és havi átlagokról',
+    'statistics_subtitle' => 'Hosszú távú áttekintés a napi, heti és havi átlagokról, 2025 november elejétől származó adatok alapján',
     'daily_statistics' => 'Napi Statisztikák',
     'weekly_statistics' => 'Heti Statisztikák',
     'monthly_statistics' => 'Havi Statisztikák',

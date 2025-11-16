@@ -13,6 +13,7 @@ return [
     // Weather section
     'weather_source_heading' => 'Sobre la Fuente de Datos Meteorológicos',
     'weather_source_description' => 'Los datos de temperatura, presión y humedad actuales se recopilan de nuestra propia estación meteorológica y sensor de temperatura en un lugar permanentemente sombreado, sin luz solar directa, por lo que son valores puros a la sombra.',
+    'hobby_disclaimer' => 'Tenga en cuenta también que la información meteorológica aquí proporcionada es solo un proyecto de hobby con datos obtenidos mediante equipos y métodos meteorológicos amateur, sin ninguna ambición de competir con fuentes meteorológicas tradicionales.',
     'temperature' => 'Temperatura del Aire',
     'sea_temperature' => 'Temperatura del Mar',
     'pressure' => 'Presión',
@@ -32,7 +33,7 @@ return [
 
     // Statistics page
     'statistics_title' => 'Estadísticas Meteorológicas',
-    'statistics_subtitle' => 'Resumen a largo plazo de promedios diarios, semanales y mensuales',
+    'statistics_subtitle' => 'Resumen a largo plazo de promedios diarios, semanales y mensuales, basado en datos desde principios de noviembre de 2025',
     'daily_statistics' => 'Estadísticas Diarias',
     'weekly_statistics' => 'Estadísticas Semanales',
     'monthly_statistics' => 'Estadísticas Mensuales',
