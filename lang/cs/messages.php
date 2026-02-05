@@ -37,6 +37,7 @@ return [
     'daily_statistics' => 'Denní statistiky',
     'weekly_statistics' => 'Týdenní statistiky',
     'monthly_statistics' => 'Měsíční statistiky',
+    'annual_statistics' => 'Roční statistiky',
     'date' => 'Datum',
     'date_label' => 'Datum:',
     'week' => 'Týden',
@@ -61,6 +62,14 @@ return [
     'monthly_pressure_chart' => 'Průměrný tlak v měsíci (hPa)',
     'monthly_humidity_chart' => 'Průměrná vlhkost v měsíci (%)',
     'monthly_sea_temperature_chart' => 'Teplota moře v měsíci (°C)',
+
+    // Annual statistics
+    'annual_statistics_title' => 'Roční statistiky',
+    'annual_statistics_subtitle' => 'Měsíční průměry (data od listopadu 2025)',
+    'annual_temperature_chart' => 'Průměrná roční teplota (°C)',
+    'annual_pressure_chart' => 'Průměrný roční tlak (hPa)',
+    'annual_humidity_chart' => 'Průměrná roční vlhkost (%)',
+    'annual_sea_temperature_chart' => 'Průměrná roční teplota moře (°C)',
 
     // Month names
     'month_1' => 'Leden',

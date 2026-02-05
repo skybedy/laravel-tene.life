@@ -76,27 +76,50 @@ class IndexController extends Controller
 
     public function statistics()
     {
+        return redirect()->route('index.statistics.daily');
+    }
+
+    public function dailyStatistics()
+    {
         // Get daily statistics (last 30 days)
         $dailyStats = WeatherDaily::orderBy('date', 'desc')
             ->limit(30)
             ->get();
 
+        return view('statistics.daily', [
+            'dailyStats' => $dailyStats,
+        ]);
+    }
+
+    public function monthlyStatistics()
+    {
         // Get weekly statistics (last 12 weeks)
         $weeklyStats = WeatherWeekly::orderBy('year', 'desc')
             ->orderBy('week', 'desc')
             ->limit(12)
             ->get();
 
-        // Get monthly statistics (last 12 months)
+        // Get monthly statistics (last 12 months) for the table
         $monthlyStats = WeatherMonthly::orderBy('year', 'desc')
             ->orderBy('month', 'desc')
             ->limit(12)
             ->get();
 
-        return view('statistics', [
-            'dailyStats' => $dailyStats,
+        return view('statistics.monthly', [
             'weeklyStats' => $weeklyStats,
             'monthlyStats' => $monthlyStats,
+        ]);
+    }
+
+    public function annualStatistics()
+    {
+        // Get all monthly statistics ordered by date for the table
+        $annualStats = WeatherMonthly::orderBy('year', 'desc')
+            ->orderBy('month', 'desc')
+            ->get();
+
+        return view('statistics.annual', [
+            'annualStats' => $annualStats,
         ]);
     }
 }

@@ -37,6 +37,7 @@ return [
     'daily_statistics' => 'Daily Statistics',
     'weekly_statistics' => 'Weekly Statistics',
     'monthly_statistics' => 'Monthly Statistics',
+    'annual_statistics' => 'Annual Statistics',
     'date' => 'Date',
     'date_label' => 'Date:',
     'week' => 'Week',
@@ -61,6 +62,14 @@ return [
     'monthly_pressure_chart' => 'Average Pressure in Month (hPa)',
     'monthly_humidity_chart' => 'Average Humidity in Month (%)',
     'monthly_sea_temperature_chart' => 'Sea Temperature in Month (°C)',
+
+    // Annual statistics
+    'annual_statistics_title' => 'Annual Statistics',
+    'annual_statistics_subtitle' => 'Monthly averages (data from November 2025)',
+    'annual_temperature_chart' => 'Average Annual Temperature (°C)',
+    'annual_pressure_chart' => 'Average Annual Pressure (hPa)',
+    'annual_humidity_chart' => 'Average Annual Humidity (%)',
+    'annual_sea_temperature_chart' => 'Average Annual Sea Temperature (°C)',
 
     // Month names
     'month_1' => 'January',

@@ -65,15 +65,37 @@
                     <!-- Navigation Links -->
                     <div class="flex gap-2 sm:gap-4 md:gap-6 ml-4 sm:ml-6 md:ml-8">
                         <a href="{{ url($localePrefix . '/') }}"
-                           class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is($currentLocale . ($currentLocale === 'cs' ? '' : '*'), '/') && !request()->is('*/statistics') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
+                           class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is($currentLocale . ($currentLocale === 'cs' ? '' : '*'), '/') && !request()->is('*/statistics*') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
                             {{ __('messages.home') }}
                         </a>
-                        <a href="{{ url($localePrefix . '/statistics') }}"
-                           class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is('*/statistics', 'statistics') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
-                            {{ __('messages.statistics') }}
-                        </a>
-                    </div>
+                        
+                        <!-- Statistics Dropdown -->
+                        <div class="relative flex-shrink-0 group">
+                            <button id="statisticsDropdown" class="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is('*/statistics*', 'statistics*') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
+                                <span>{{ __('messages.statistics') }}</span>
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
 
+                            <!-- Dropdown Menu -->
+                            <div id="statisticsDropdownMenu" class="hidden absolute left-0 mt-2 w-48 bg-white backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-[9999]">
+                                <a href="{{ url($localePrefix . '/statistics/daily') }}"
+                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/50 hover:rounded-t-lg transition {{ request()->is('*/statistics/daily', 'statistics/daily') ? 'bg-gray-100 font-medium' : '' }}">
+                                    {{ __('messages.daily_statistics') }}
+                                </a>
+                                <a href="{{ url($localePrefix . '/statistics/monthly') }}"
+                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/50 transition {{ request()->is('*/statistics/monthly', 'statistics/monthly') ? 'bg-gray-100 font-medium' : '' }}">
+                                    {{ __('messages.monthly_statistics') }}
+                                </a>
+                                <a href="{{ url($localePrefix . '/statistics/annual') }}"
+                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/50 hover:rounded-b-lg transition {{ request()->is('*/statistics/annual', 'statistics/annual') ? 'bg-gray-100 font-medium' : '' }}">
+                                    {{ __('messages.annual_statistics') }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+ 
                     <!-- Language Dropdown -->
                     <div class="relative flex-shrink-0 ml-auto">
                         <button id="languageDropdown" class="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 hover:bg-white/30 rounded-lg transition">
@@ -135,19 +157,32 @@
         </nav>
 
         <script>
-            // Language dropdown toggle
+            // Dropdown logic
             document.addEventListener('DOMContentLoaded', function() {
-                const dropdown = document.getElementById('languageDropdown');
-                const menu = document.getElementById('languageDropdownMenu');
+                // Helper to setup dropdown
+                function setupDropdown(btnId, menuId) {
+                    const btn = document.getElementById(btnId);
+                    const menu = document.getElementById(menuId);
+                    if(!btn || !menu) return;
 
-                dropdown.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    menu.classList.toggle('hidden');
-                });
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        // Close other dropdowns if open (optional but good UX)
+                        document.querySelectorAll('[id$="DropdownMenu"]').forEach(el => {
+                            if(el.id !== menuId) el.classList.add('hidden');
+                        });
+                        menu.classList.toggle('hidden');
+                    });
+                }
 
-                // Close dropdown when clicking outside
+                setupDropdown('languageDropdown', 'languageDropdownMenu');
+                setupDropdown('statisticsDropdown', 'statisticsDropdownMenu');
+
+                // Close dropdowns when clicking outside
                 document.addEventListener('click', function() {
-                    menu.classList.add('hidden');
+                    document.querySelectorAll('[id$="DropdownMenu"]').forEach(el => {
+                        el.classList.add('hidden');
+                    });
                 });
             });
         </script>

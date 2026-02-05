@@ -239,4 +239,52 @@ class WeatherController extends Controller
             ],
         ]);
     }
+
+    /**
+     * Get annual statistics (monthly averages)
+     */
+    public function getAnnualData(Request $request)
+    {
+        // Get all monthly data from November 2025
+        $data = \App\Models\WeatherMonthly::orderBy('year', 'asc')
+            ->orderBy('month', 'asc')
+            ->get();
+
+        $labels = [];
+        $avgTemp = [];
+        $avgPressure = [];
+        $avgHumidity = [];
+        // Sea temperature is not in WeatherMonthly yet, need to aggregate from WeatherDaily or add to table
+        // For now, let's aggregate from WeatherDaily for each month
+        $seaTemp = [];
+
+        foreach ($data as $record) {
+            // Label: Month Year (e.g., 1/2026)
+            $labels[] = $record->month . '/' . $record->year;
+            
+            $avgTemp[] = $record->avg_temperature ? round((float) $record->avg_temperature, 1) : null;
+            $avgPressure[] = $record->avg_pressure ? round((float) $record->avg_pressure, 1) : null;
+            $avgHumidity[] = $record->avg_humidity ? round((float) $record->avg_humidity, 1) : null;
+
+            // Calculate average sea temperature for this month
+            $monthStart = Carbon::create($record->year, $record->month, 1);
+            $monthEnd = $monthStart->copy()->endOfMonth();
+            
+            $avgSeaTemp = WeatherDaily::whereBetween('date', [$monthStart, $monthEnd])
+                ->whereNotNull('sea_temperature')
+                ->avg('sea_temperature');
+            
+            $seaTemp[] = $avgSeaTemp ? round($avgSeaTemp, 1) : null;
+        }
+
+        return response()->json([
+            'labels' => $labels,
+            'datasets' => [
+                'avg_temperature' => $avgTemp,
+                'avg_pressure' => $avgPressure,
+                'avg_humidity' => $avgHumidity,
+                'sea_temperature' => $seaTemp,
+            ],
+        ]);
+    }
 }

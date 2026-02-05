@@ -259,6 +259,42 @@ function initCharts() {
             },
         });
     }
+
+    // Annual charts
+    const annualTempCtx = document.getElementById('annualTemperatureChart');
+    const annualPressureCtx = document.getElementById('annualPressureChart');
+    const annualHumidityCtx = document.getElementById('annualHumidityChart');
+    const annualSeaTempCtx = document.getElementById('annualSeaTemperatureChart');
+
+    // Using same configuration as monthly for now
+    if (annualTempCtx) {
+        window.annualTemperatureChart = new Chart(annualTempCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(239, 68, 68)', backgroundColor: 'rgba(239, 68, 68, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: chartOptions
+        });
+    }
+    if (annualPressureCtx) {
+        window.annualPressureChart = new Chart(annualPressureCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(34, 197, 94)', backgroundColor: 'rgba(34, 197, 94, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: chartOptions
+        });
+    }
+    if (annualHumidityCtx) {
+        window.annualHumidityChart = new Chart(annualHumidityCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(168, 85, 247)', backgroundColor: 'rgba(168, 85, 247, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: { ...chartOptions, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, min: 0, max: 100 } } }
+        });
+    }
+    if (annualSeaTempCtx) {
+        window.annualSeaTemperatureChart = new Chart(annualSeaTempCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(59, 130, 246)', backgroundColor: 'rgba(59, 130, 246, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: chartOptions
+        });
+    }
 }
 
 // Calculate statistics from data array
@@ -266,12 +302,12 @@ function calculateStats(data) {
     if (data.length === 0) {
         return { avg: 0, min: 0, max: 0 };
     }
-    
+
     const sum = data.reduce((a, b) => a + b, 0);
     const avg = sum / data.length;
     const min = Math.min(...data);
     const max = Math.max(...data);
-    
+
     return {
         avg: Math.round(avg * 10) / 10,
         min: Math.round(min * 10) / 10,
@@ -282,6 +318,9 @@ function calculateStats(data) {
 // Load data and update charts
 async function loadData() {
     try {
+        // Only run if elements exist (Daily page)
+        if (!document.getElementById('temperatureChart')) return;
+
         const response = await axios.get('/api/weather/hourly', {
             params: {
                 date: currentDate,
@@ -301,9 +340,9 @@ async function loadData() {
             temperatureChart.data.datasets[0].data = data.datasets.temperature;
             temperatureChart.update();
         }
-        document.getElementById('stat-temp-avg').textContent = tempStats.avg + ' °C';
-        document.getElementById('stat-temp-min').textContent = tempStats.min + ' °C';
-        document.getElementById('stat-temp-max').textContent = tempStats.max + ' °C';
+        if (document.getElementById('stat-temp-avg')) document.getElementById('stat-temp-avg').textContent = tempStats.avg + ' °C';
+        if (document.getElementById('stat-temp-min')) document.getElementById('stat-temp-min').textContent = tempStats.min + ' °C';
+        if (document.getElementById('stat-temp-max')) document.getElementById('stat-temp-max').textContent = tempStats.max + ' °C';
 
         // Update pressure chart and stats
         if (pressureChart) {
@@ -311,9 +350,9 @@ async function loadData() {
             pressureChart.data.datasets[0].data = data.datasets.pressure;
             pressureChart.update();
         }
-        document.getElementById('stat-pressure-avg').textContent = pressureStats.avg + ' hPa';
-        document.getElementById('stat-pressure-min').textContent = pressureStats.min + ' hPa';
-        document.getElementById('stat-pressure-max').textContent = pressureStats.max + ' hPa';
+        if (document.getElementById('stat-pressure-avg')) document.getElementById('stat-pressure-avg').textContent = pressureStats.avg + ' hPa';
+        if (document.getElementById('stat-pressure-min')) document.getElementById('stat-pressure-min').textContent = pressureStats.min + ' hPa';
+        if (document.getElementById('stat-pressure-max')) document.getElementById('stat-pressure-max').textContent = pressureStats.max + ' hPa';
 
         // Update humidity chart and stats
         if (humidityChart) {
@@ -321,10 +360,10 @@ async function loadData() {
             humidityChart.data.datasets[0].data = data.datasets.humidity;
             humidityChart.update();
         }
-        document.getElementById('stat-humidity-avg').textContent = Math.round(humidityStats.avg) + ' %';
-        document.getElementById('stat-humidity-min').textContent = Math.round(humidityStats.min) + ' %';
-        document.getElementById('stat-humidity-max').textContent = Math.round(humidityStats.max) + ' %';
-        
+        if (document.getElementById('stat-humidity-avg')) document.getElementById('stat-humidity-avg').textContent = Math.round(humidityStats.avg) + ' %';
+        if (document.getElementById('stat-humidity-min')) document.getElementById('stat-humidity-min').textContent = Math.round(humidityStats.min) + ' %';
+        if (document.getElementById('stat-humidity-max')) document.getElementById('stat-humidity-max').textContent = Math.round(humidityStats.max) + ' %';
+
     } catch (error) {
         console.error('Error loading data:', error);
     }
@@ -333,6 +372,9 @@ async function loadData() {
 // Load monthly data and update charts
 async function loadMonthlyData() {
     try {
+        // Only run if elements exist (Monthly page)
+        if (!document.getElementById('monthlyTemperatureChart')) return;
+
         const response = await axios.get('/api/weather/monthly-daily', {
             params: {
                 year: currentYear,
@@ -372,6 +414,41 @@ async function loadMonthlyData() {
 
     } catch (error) {
         console.error('Error loading monthly data:', error);
+    }
+}
+
+// Load annual data and update charts
+async function loadAnnualData() {
+    try {
+        // Only run if elements exist (Annual page)
+        if (!document.getElementById('annualTemperatureChart')) return;
+
+        const response = await axios.get('/api/weather/annual');
+        const data = response.data;
+
+        if (window.annualTemperatureChart) {
+            window.annualTemperatureChart.data.labels = data.labels;
+            window.annualTemperatureChart.data.datasets[0].data = data.datasets.avg_temperature;
+            window.annualTemperatureChart.update();
+        }
+        if (window.annualPressureChart) {
+            window.annualPressureChart.data.labels = data.labels;
+            window.annualPressureChart.data.datasets[0].data = data.datasets.avg_pressure;
+            window.annualPressureChart.update();
+        }
+        if (window.annualHumidityChart) {
+            window.annualHumidityChart.data.labels = data.labels;
+            window.annualHumidityChart.data.datasets[0].data = data.datasets.avg_humidity;
+            window.annualHumidityChart.update();
+        }
+        if (window.annualSeaTemperatureChart) {
+            window.annualSeaTemperatureChart.data.labels = data.labels;
+            window.annualSeaTemperatureChart.data.datasets[0].data = data.datasets.sea_temperature;
+            window.annualSeaTemperatureChart.update();
+        }
+
+    } catch (error) {
+        console.error('Error loading annual data:', error);
     }
 }
 
@@ -425,4 +502,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     loadData();
     loadMonthlyData();
+    loadAnnualData();
 });
