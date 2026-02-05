@@ -88,6 +88,10 @@
                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/50 transition {{ request()->is('*/statistics/monthly', 'statistics/monthly') ? 'bg-gray-100 font-medium' : '' }}">
                                     {{ __('messages.monthly_statistics') }}
                                 </a>
+                                <a href="{{ url($localePrefix . '/statistics/weekly') }}"
+                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/50 transition {{ request()->is('*/statistics/weekly', 'statistics/weekly') ? 'bg-gray-100 font-medium' : '' }}">
+                                    {{ __('messages.weekly_statistics') }}
+                                </a>
                                 <a href="{{ url($localePrefix . '/statistics/annual') }}"
                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/50 hover:rounded-b-lg transition {{ request()->is('*/statistics/annual', 'statistics/annual') ? 'bg-gray-100 font-medium' : '' }}">
                                     {{ __('messages.annual_statistics') }}

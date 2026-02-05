@@ -245,8 +245,10 @@ class WeatherController extends Controller
      */
     public function getAnnualData(Request $request)
     {
-        // Get all monthly data from November 2025
-        $data = \App\Models\WeatherMonthly::orderBy('year', 'asc')
+        $year = $request->input('year', Carbon::now()->year);
+
+        // Get all monthly data for the selected year
+        $data = \App\Models\WeatherMonthly::where('year', $year)
             ->orderBy('month', 'asc')
             ->get();
 
@@ -271,6 +273,63 @@ class WeatherController extends Controller
             $monthEnd = $monthStart->copy()->endOfMonth();
             
             $avgSeaTemp = WeatherDaily::whereBetween('date', [$monthStart, $monthEnd])
+                ->whereNotNull('sea_temperature')
+                ->avg('sea_temperature');
+            
+            $seaTemp[] = $avgSeaTemp ? round($avgSeaTemp, 1) : null;
+        }
+
+        return response()->json([
+            'labels' => $labels,
+            'datasets' => [
+                'avg_temperature' => $avgTemp,
+                'avg_pressure' => $avgPressure,
+                'avg_humidity' => $avgHumidity,
+                'sea_temperature' => $seaTemp,
+            ],
+        ]);
+    }
+
+    /**
+     * Get weekly statistics
+     */
+    public function getWeeklyData(Request $request)
+    {
+        $year = $request->input('year', Carbon::now()->year);
+
+        // Get all weekly data from selected year
+        $data = \App\Models\WeatherWeekly::where('year', $year)
+            ->orderBy('week', 'asc')
+            ->get();
+
+        $labels = [];
+        $avgTemp = [];
+        $avgPressure = [];
+        $avgHumidity = [];
+        // Sea temperature aggregation for weeks
+        $seaTemp = [];
+
+        foreach ($data as $record) {
+            // Calculate week start and end dates
+            if ($record->week_start && $record->week_end) {
+                $weekStart = $record->week_start;
+                $weekEnd = $record->week_end;
+            } else {
+                 $dto = new Carbon();
+                 $dto->setISODate($record->year, $record->week);
+                 $weekStart = $dto->startOfWeek();
+                 $weekEnd = $dto->copy()->endOfWeek();
+            }
+
+            // Label: Week/Year (DateRange) e.g., "42/2025 (13.10. - 19.10.)"
+            $labels[] = $record->week . '/' . $record->year . ' (' . $weekStart->format('j.n.') . ' - ' . $weekEnd->format('j.n.') . ')';
+            
+            $avgTemp[] = $record->avg_temperature ? round((float) $record->avg_temperature, 1) : null;
+            $avgPressure[] = $record->avg_pressure ? round((float) $record->avg_pressure, 1) : null;
+            $avgHumidity[] = $record->avg_humidity ? round((float) $record->avg_humidity, 1) : null;
+
+            // Calculate average sea temperature for this week
+            $avgSeaTemp = WeatherDaily::whereBetween('date', [$weekStart->format('Y-m-d'), $weekEnd->format('Y-m-d')])
                 ->whereNotNull('sea_temperature')
                 ->avg('sea_temperature');
             

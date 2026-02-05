@@ -63,6 +63,14 @@ return [
     'monthly_humidity_chart' => 'Average Humidity in Month (%)',
     'monthly_sea_temperature_chart' => 'Sea Temperature in Month (°C)',
 
+    // Weekly statistics
+    'weekly_statistics_title' => 'Weekly Statistics',
+    'weekly_statistics_subtitle' => 'Weekly averages (data from November 2025)',
+    'weekly_temperature_chart' => 'Average Weekly Temperature (°C)',
+    'weekly_pressure_chart' => 'Average Weekly Pressure (hPa)',
+    'weekly_humidity_chart' => 'Average Weekly Humidity (%)',
+    'weekly_sea_temperature_chart' => 'Average Weekly Sea Temperature (°C)',
+
     // Annual statistics
     'annual_statistics_title' => 'Annual Statistics',
     'annual_statistics_subtitle' => 'Monthly averages (data from November 2025)',

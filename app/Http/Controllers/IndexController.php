@@ -93,12 +93,6 @@ class IndexController extends Controller
 
     public function monthlyStatistics()
     {
-        // Get weekly statistics (last 12 weeks)
-        $weeklyStats = WeatherWeekly::orderBy('year', 'desc')
-            ->orderBy('week', 'desc')
-            ->limit(12)
-            ->get();
-
         // Get monthly statistics (last 12 months) for the table
         $monthlyStats = WeatherMonthly::orderBy('year', 'desc')
             ->orderBy('month', 'desc')
@@ -106,8 +100,19 @@ class IndexController extends Controller
             ->get();
 
         return view('statistics.monthly', [
-            'weeklyStats' => $weeklyStats,
             'monthlyStats' => $monthlyStats,
+        ]);
+    }
+
+    public function weeklyStatistics()
+    {
+        // Get weekly statistics ordered by date for the table
+        $weeklyStats = WeatherWeekly::orderBy('year', 'desc')
+            ->orderBy('week', 'desc')
+            ->get();
+
+        return view('statistics.weekly', [
+            'weeklyStats' => $weeklyStats,
         ]);
     }
 

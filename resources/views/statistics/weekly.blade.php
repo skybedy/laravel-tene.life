@@ -5,16 +5,16 @@
             $currentLocale = app()->getLocale();
         @endphp
 
-        <!-- Annual Statistics Header -->
+        <!-- Weekly Statistics Header -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6 mb-4 sm:mb-6 md:mb-8">
-            <h1 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">{{ __('messages.annual_statistics_title') }}</h1>
-            <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base">{{ __('messages.annual_statistics_subtitle') }}</p>
+            <h1 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">{{ __('messages.weekly_statistics_title') }}</h1>
+            <p class="text-gray-600 text-[0.65rem] sm:text-xs md:text-sm lg:text-base">{{ __('messages.weekly_statistics_subtitle') }}</p>
         </div>
 
         <!-- Controls -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6 mb-4 sm:mb-6">
              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Year Picker for Annual Stats -->
+                <!-- Year Picker for Weekly Stats -->
                 <div>
                     <label for="selectedYear" class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">{{ __('messages.monthly_date_label') }}</label>
                     <select id="selectedYear"
@@ -30,35 +30,35 @@
             </div>
         </div>
 
-        <!-- Annual Temperature Chart -->
+        <!-- Weekly Temperature Chart -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6 mb-4 sm:mb-6">
-            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.annual_temperature_chart') }}</h2>
+            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.weekly_temperature_chart') }}</h2>
             <div class="relative h-40 sm:h-48 md:h-56 lg:h-64">
-                <canvas id="annualTemperatureChart"></canvas>
+                <canvas id="weeklyTemperatureChart"></canvas>
             </div>
         </div>
 
-        <!-- Annual Pressure Chart -->
+        <!-- Weekly Pressure Chart -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6 mb-4 sm:mb-6">
-            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.annual_pressure_chart') }}</h2>
+            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.weekly_pressure_chart') }}</h2>
             <div class="relative h-40 sm:h-48 md:h-56 lg:h-64">
-                <canvas id="annualPressureChart"></canvas>
+                <canvas id="weeklyPressureChart"></canvas>
             </div>
         </div>
 
-        <!-- Annual Humidity Chart -->
+        <!-- Weekly Humidity Chart -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6 mb-4 sm:mb-6">
-            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.annual_humidity_chart') }}</h2>
+            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.weekly_humidity_chart') }}</h2>
             <div class="relative h-40 sm:h-48 md:h-56 lg:h-64">
-                <canvas id="annualHumidityChart"></canvas>
+                <canvas id="weeklyHumidityChart"></canvas>
             </div>
         </div>
 
-        <!-- Annual Sea Temperature Chart -->
+        <!-- Weekly Sea Temperature Chart -->
         <div class="bg-white/30 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-300 p-3 sm:p-4 md:p-5 lg:p-6 mb-4 sm:mb-6">
-            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.annual_sea_temperature_chart') }}</h2>
+            <h2 class="text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4 text-gray-700">{{ __('messages.weekly_sea_temperature_chart') }}</h2>
             <div class="relative h-40 sm:h-48 md:h-56 lg:h-64">
-                <canvas id="annualSeaTemperatureChart"></canvas>
+                <canvas id="weeklySeaTemperatureChart"></canvas>
             </div>
         </div>
 

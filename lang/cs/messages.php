@@ -63,6 +63,14 @@ return [
     'monthly_humidity_chart' => 'Průměrná vlhkost v měsíci (%)',
     'monthly_sea_temperature_chart' => 'Teplota moře v měsíci (°C)',
 
+    // Weekly statistics
+    'weekly_statistics_title' => 'Týdenní statistiky',
+    'weekly_statistics_subtitle' => 'Týdenní průměry (data od listopadu 2025)',
+    'weekly_temperature_chart' => 'Průměrná týdenní teplota (°C)',
+    'weekly_pressure_chart' => 'Průměrný týdenní tlak (hPa)',
+    'weekly_humidity_chart' => 'Průměrná týdenní vlhkost (%)',
+    'weekly_sea_temperature_chart' => 'Průměrná týdenní teplota moře (°C)',
+
     // Annual statistics
     'annual_statistics_title' => 'Roční statistiky',
     'annual_statistics_subtitle' => 'Měsíční průměry (data od listopadu 2025)',

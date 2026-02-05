@@ -295,6 +295,42 @@ function initCharts() {
             options: chartOptions
         });
     }
+
+    // Weekly charts
+    const weeklyTempCtx = document.getElementById('weeklyTemperatureChart');
+    const weeklyPressureCtx = document.getElementById('weeklyPressureChart');
+    const weeklyHumidityCtx = document.getElementById('weeklyHumidityChart');
+    const weeklySeaTempCtx = document.getElementById('weeklySeaTemperatureChart');
+
+    // Using same configuration as monthly/annual
+    if (weeklyTempCtx) {
+        window.weeklyTemperatureChart = new Chart(weeklyTempCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(239, 68, 68)', backgroundColor: 'rgba(239, 68, 68, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: chartOptions
+        });
+    }
+    if (weeklyPressureCtx) {
+        window.weeklyPressureChart = new Chart(weeklyPressureCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(34, 197, 94)', backgroundColor: 'rgba(34, 197, 94, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: chartOptions
+        });
+    }
+    if (weeklyHumidityCtx) {
+        window.weeklyHumidityChart = new Chart(weeklyHumidityCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(168, 85, 247)', backgroundColor: 'rgba(168, 85, 247, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: { ...chartOptions, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, min: 0, max: 100 } } }
+        });
+    }
+    if (weeklySeaTempCtx) {
+        window.weeklySeaTemperatureChart = new Chart(weeklySeaTempCtx, {
+            type: 'line',
+            data: { labels: [], datasets: [{ label: '', data: [], borderColor: 'rgb(59, 130, 246)', backgroundColor: 'rgba(59, 130, 246, 0.1)', tension: 0.4, fill: true, spanGaps: true }] },
+            options: chartOptions
+        });
+    }
 }
 
 // Calculate statistics from data array
@@ -423,7 +459,11 @@ async function loadAnnualData() {
         // Only run if elements exist (Annual page)
         if (!document.getElementById('annualTemperatureChart')) return;
 
-        const response = await axios.get('/api/weather/annual');
+        const response = await axios.get('/api/weather/annual', {
+            params: {
+                year: currentYear
+            }
+        });
         const data = response.data;
 
         if (window.annualTemperatureChart) {
@@ -449,6 +489,45 @@ async function loadAnnualData() {
 
     } catch (error) {
         console.error('Error loading annual data:', error);
+    }
+}
+
+// Load weekly data and update charts
+async function loadWeeklyData() {
+    try {
+        // Only run if elements exist (Weekly page)
+        if (!document.getElementById('weeklyTemperatureChart')) return;
+
+        const response = await axios.get('/api/weather/weekly', {
+            params: {
+                year: currentYear
+            }
+        });
+        const data = response.data;
+
+        if (window.weeklyTemperatureChart) {
+            window.weeklyTemperatureChart.data.labels = data.labels;
+            window.weeklyTemperatureChart.data.datasets[0].data = data.datasets.avg_temperature;
+            window.weeklyTemperatureChart.update();
+        }
+        if (window.weeklyPressureChart) {
+            window.weeklyPressureChart.data.labels = data.labels;
+            window.weeklyPressureChart.data.datasets[0].data = data.datasets.avg_pressure;
+            window.weeklyPressureChart.update();
+        }
+        if (window.weeklyHumidityChart) {
+            window.weeklyHumidityChart.data.labels = data.labels;
+            window.weeklyHumidityChart.data.datasets[0].data = data.datasets.avg_humidity;
+            window.weeklyHumidityChart.update();
+        }
+        if (window.weeklySeaTemperatureChart) {
+            window.weeklySeaTemperatureChart.data.labels = data.labels;
+            window.weeklySeaTemperatureChart.data.datasets[0].data = data.datasets.sea_temperature;
+            window.weeklySeaTemperatureChart.update();
+        }
+
+    } catch (error) {
+        console.error('Error loading weekly data:', error);
     }
 }
 
@@ -484,13 +563,21 @@ function setupEventListeners() {
     if (yearInput) {
         yearInput.addEventListener('change', (e) => {
             currentYear = parseInt(e.target.value);
-            // Check if this month/year combination is valid
-            const selectedDate = new Date(currentYear, currentMonthNum - 1, 1);
-            const minDate = new Date(2025, 10, 1); // Nov 2025
-            const today = new Date();
 
-            if (selectedDate >= minDate && selectedDate <= today) {
-                loadMonthlyData();
+            // Handle different pages
+            if (document.getElementById('monthlyTemperatureChart')) {
+                // Check if this month/year combination is valid (not in the future, not before Nov 2025)
+                const selectedDate = new Date(currentYear, currentMonthNum - 1, 1);
+                const minDate = new Date(2025, 10, 1); // Nov 2025
+                const today = new Date();
+
+                if (selectedDate >= minDate && selectedDate <= today) {
+                    loadMonthlyData();
+                }
+            } else if (document.getElementById('annualTemperatureChart')) {
+                loadAnnualData();
+            } else if (document.getElementById('weeklyTemperatureChart')) {
+                loadWeeklyData();
             }
         });
     }
@@ -503,4 +590,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadData();
     loadMonthlyData();
     loadAnnualData();
+    loadWeeklyData();
 });
