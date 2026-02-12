@@ -79,7 +79,7 @@
                             </button>
 
                             <!-- Dropdown Menu -->
-                            <div id="statisticsDropdownMenu" class="hidden absolute left-0 mt-2 w-48 bg-white backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-[9999]">
+                            <div id="statisticsDropdownMenu" class="hidden absolute left-0 top-full mt-2 w-48 bg-white backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-[9999]">
                                 <a href="{{ url($localePrefix . '/statistics/daily') }}"
                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100/50 hover:rounded-t-lg transition {{ request()->is('*/statistics/daily', 'statistics/daily') ? 'bg-gray-100 font-medium' : '' }}">
                                     {{ __('messages.daily_statistics') }}
@@ -123,7 +123,7 @@
                         </button>
 
                         <!-- Dropdown Menu -->
-                        <div id="languageDropdownMenu" class="hidden absolute right-0 mt-2 w-40 sm:w-48 bg-white backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-[9999]">
+                        <div id="languageDropdownMenu" class="hidden absolute right-0 top-full mt-2 w-40 sm:w-48 bg-white backdrop-blur-sm border border-gray-300 rounded-lg shadow-lg z-[9999]">
                             <a href="{{ getLocaleUrl('cs', $currentPath) }}"
                                class="flex items-center gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-white/50 transition {{ $currentLocale === 'cs' ? 'bg-white/30 font-medium' : '' }}">
                                 <span class="text-base sm:text-lg">🇨🇿</span>
