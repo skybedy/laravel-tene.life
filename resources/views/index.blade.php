@@ -2,7 +2,9 @@
     <div class="mx-auto w-full sm:w-3/4 p-3 sm:p-4 md:p-6 lg:p-8">
 
    @php
-        $timestamp = filemtime('images/tenelife.jpg');
+        $imagePath = public_path('images/tenelife.jpg');
+        $hasImage = file_exists($imagePath);
+        $timestamp = $hasImage ? filemtime($imagePath) : time();
         $hour = date('H', $timestamp);
         $date = date('j. n. y', $timestamp);
         $time = date("$hour:i", $timestamp);
