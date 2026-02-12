@@ -26,3 +26,9 @@ Thumbs.db
 /public/files/weather.json
 !/public/files/.gitkeep
 
+# Local untracked directories
+/_laravel_reference/
+/app_bin
+.npm/
+.cache/
+.vscode-server/

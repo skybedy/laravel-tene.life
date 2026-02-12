@@ -62,18 +62,18 @@
                         </a>
                     </div>
 
-                    <!-- Navigation Links -->
-                    <div class="flex gap-2 sm:gap-4 md:gap-6 ml-4 sm:ml-6 md:ml-8">
+                    <!-- Navigation Links (Desktop) -->
+                    <div class="hidden lg:flex gap-4 md:gap-6 ml-6 md:ml-8">
                         <a href="{{ url($localePrefix . '/') }}"
-                           class="px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is($currentLocale . ($currentLocale === 'cs' ? '' : '*'), '/') && !request()->is('*/statistics*') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
+                           class="px-3 md:px-4 py-2 text-sm md:text-base font-medium rounded-lg transition {{ request()->is($currentLocale . ($currentLocale === 'cs' ? '' : '*'), '/') && !request()->is('*/statistics*') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
                             {{ __('messages.home') }}
                         </a>
                         
                         <!-- Statistics Dropdown -->
                         <div class="relative flex-shrink-0 group">
-                            <button id="statisticsDropdown" class="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm md:text-base font-medium rounded-lg transition {{ request()->is('*/statistics*', 'statistics*') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
+                            <button id="statisticsDropdown" class="flex items-center gap-2 px-3 md:px-4 py-2 text-sm md:text-base font-medium rounded-lg transition {{ request()->is('*/statistics*', 'statistics*') ? 'bg-white/50 text-gray-900' : 'text-gray-700 hover:bg-white/30' }}">
                                 <span>{{ __('messages.statistics') }}</span>
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                                 </svg>
                             </button>
@@ -100,8 +100,8 @@
                         </div>
                     </div>
  
-                    <!-- Language Dropdown -->
-                    <div class="relative flex-shrink-0 ml-auto">
+                    <!-- Language Dropdown & Hamburger -->
+                    <div class="relative flex-shrink-0 ml-auto flex items-center gap-2">
                         <button id="languageDropdown" class="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-gray-700 hover:bg-white/30 rounded-lg transition">
                             <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
@@ -109,6 +109,16 @@
                             <span class="hidden sm:inline">{{ strtoupper($currentLocale) }}</span>
                             <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+
+                        <!-- Hamburger Button -->
+                        <button id="mobileMenuButton" type="button" class="lg:hidden text-gray-700 hover:bg-white/30 p-1.5 rounded-lg transition" aria-label="Menu">
+                            <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                            <svg id="closeIcon" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                             </svg>
                         </button>
 
@@ -158,6 +168,38 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 absolute w-full left-0 z-40 shadow-xl">
+                <div class="px-4 pt-2 pb-6 space-y-1">
+                    <a href="{{ url($localePrefix . '/') }}" 
+                       class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100/50 rounded-lg transition {{ request()->is($currentLocale . ($currentLocale === 'cs' ? '' : '*'), '/') && !request()->is('*/statistics*') ? 'bg-gray-100 text-gray-900' : '' }}">
+                        {{ __('messages.home') }}
+                    </a>
+                    
+                    <div class="py-2">
+                        <div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100 mb-2">
+                            {{ __('messages.statistics') }}
+                        </div>
+                        <a href="{{ url($localePrefix . '/statistics/daily') }}" 
+                           class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100/50 rounded-lg transition {{ request()->is('*/statistics/daily', 'statistics/daily') ? 'bg-gray-100 text-gray-900' : '' }}">
+                            {{ __('messages.daily_statistics') }}
+                        </a>
+                        <a href="{{ url($localePrefix . '/statistics/monthly') }}" 
+                           class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100/50 rounded-lg transition {{ request()->is('*/statistics/monthly', 'statistics/monthly') ? 'bg-gray-100 text-gray-900' : '' }}">
+                            {{ __('messages.monthly_statistics') }}
+                        </a>
+                        <a href="{{ url($localePrefix . '/statistics/weekly') }}" 
+                           class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100/50 rounded-lg transition {{ request()->is('*/statistics/weekly', 'statistics/weekly') ? 'bg-gray-100 text-gray-900' : '' }}">
+                            {{ __('messages.weekly_statistics') }}
+                        </a>
+                        <a href="{{ url($localePrefix . '/statistics/annual') }}" 
+                           class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100/50 rounded-lg transition {{ request()->is('*/statistics/annual', 'statistics/annual') ? 'bg-gray-100 text-gray-900' : '' }}">
+                            {{ __('messages.annual_statistics') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </nav>
 
         <script>
@@ -182,11 +224,36 @@
                 setupDropdown('languageDropdown', 'languageDropdownMenu');
                 setupDropdown('statisticsDropdown', 'statisticsDropdownMenu');
 
-                // Close dropdowns when clicking outside
-                document.addEventListener('click', function() {
+                // Mobile Menu Toggle
+                const mobileMenuBtn = document.getElementById('mobileMenuButton');
+                const mobileMenu = document.getElementById('mobileMenu');
+                const hamburgerIcon = document.getElementById('hamburgerIcon');
+                const closeIcon = document.getElementById('closeIcon');
+
+                if (mobileMenuBtn && mobileMenu) {
+                    mobileMenuBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const isHidden = mobileMenu.classList.toggle('hidden');
+                        hamburgerIcon.classList.toggle('hidden', !isHidden);
+                        closeIcon.classList.toggle('hidden', isHidden);
+                    });
+                }
+
+                // Close dropdowns and mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    // Close desktop dropdowns
                     document.querySelectorAll('[id$="DropdownMenu"]').forEach(el => {
                         el.classList.add('hidden');
                     });
+
+                    // Close mobile menu
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                            mobileMenu.classList.add('hidden');
+                            hamburgerIcon.classList.remove('hidden');
+                            closeIcon.classList.add('hidden');
+                        }
+                    }
                 });
             });
         </script>
