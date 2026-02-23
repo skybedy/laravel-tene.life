@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\WeatherDaily;
 use App\Models\WeatherWeekly;
 use App\Models\WeatherMonthly;
+use App\Models\Weather;
+use Carbon\Carbon;
 
 class IndexController extends Controller
 {
@@ -13,11 +15,13 @@ class IndexController extends Controller
     {
         $weatherData = $this->getWeatherData();
         $seaTemperature = $this->getSeaTemperature();
+        $dailyExtremes = $this->getDailyExtremes();
 
         return view('index',[
             'weatherData' => $weatherData,
             'weatherTimestamp' => $weatherData ? $this->getWeatherTimestamp() : null,
-            'seaTemperature' => $seaTemperature
+            'seaTemperature' => $seaTemperature,
+            'dailyExtremes' => $dailyExtremes
         ]);
     }
 
@@ -65,6 +69,26 @@ class IndexController extends Controller
             ->first();
 
         return $latest ? $latest->sea_temperature : null;
+    }
+
+    private function getDailyExtremes()
+    {
+        $today = Carbon::today();
+        
+        $max = Weather::whereDate('measured_at', $today)
+            ->orderBy('temperature', 'desc')
+            ->orderBy('measured_at', 'asc')
+            ->first();
+            
+        $min = Weather::whereDate('measured_at', $today)
+            ->orderBy('temperature', 'asc')
+            ->orderBy('measured_at', 'asc')
+            ->first();
+            
+        return [
+            'max' => $max,
+            'min' => $min,
+        ];
     }
 
 

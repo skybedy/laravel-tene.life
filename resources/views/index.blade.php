@@ -32,6 +32,18 @@
                             <td class="pr-2">{{ __('messages.temperature') }}</td>
                             <td class="text-right">{{ round($weatherData['temperature'],1) }} °C</td>
                         </tr>
+                        @if($dailyExtremes['max'])
+                        <tr class="text-[0.55rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-xs xl:text-sm text-red-300">
+                            <td class="pr-2 pl-2">↑ {{ __('messages.max') }} ({{ $dailyExtremes['max']->measured_at->format('H:i') }})</td>
+                            <td class="text-right">{{ round($dailyExtremes['max']->temperature, 1) }} °C</td>
+                        </tr>
+                        @endif
+                        @if($dailyExtremes['min'])
+                        <tr class="text-[0.55rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-xs xl:text-sm text-blue-300">
+                            <td class="pr-2 pl-2">↓ {{ __('messages.min') }} ({{ $dailyExtremes['min']->measured_at->format('H:i') }})</td>
+                            <td class="text-right">{{ round($dailyExtremes['min']->temperature, 1) }} °C</td>
+                        </tr>
+                        @endif
                         <tr>
                             <td class="pr-2">{{ __('messages.pressure') }}</td>
                             <td class="text-right">{{ round($weatherData['pressure'],1) }} hPa</td>
