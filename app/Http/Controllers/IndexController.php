@@ -54,17 +54,9 @@ class IndexController extends Controller
 
     private function getSeaTemperature()
     {
-        // Try to get today's sea temperature first
-        $today = WeatherDaily::whereDate('date', today())
-            ->whereNotNull('sea_temperature')
-            ->first();
-
-        if ($today && $today->sea_temperature) {
-            return $today->sea_temperature;
-        }
-
-        // If not found, get the most recent sea temperature
+        // Get the most recent sea temperature measurement, including today's if available
         $latest = WeatherDaily::whereNotNull('sea_temperature')
+            ->where('date', '<=', today())
             ->orderBy('date', 'desc')
             ->first();
 
