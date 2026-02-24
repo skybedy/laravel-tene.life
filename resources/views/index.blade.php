@@ -18,12 +18,12 @@
             <img src="{{ asset('images/tenelife.jpg') }}" alt="Webkamera výhled" class="w-full h-full object-cover rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl">
 
             <!-- Weather Info Box - Top Left -->
-            <div class="absolute top-2 left-2 sm:top-3 sm:left-3 md:top-4 md:left-4 lg:top-5 lg:left-5
-                        px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 lg:px-5 lg:py-3 xl:py-4
-                        rounded-lg sm:rounded-xl md:rounded-2xl
+            <div class="absolute top-1 left-1 sm:top-1 md:top-1.5 md:left-1.5 lg:top-2 lg:left-2 xl:top-3 xl:left-3 2xl:top-8 2xl:left-8
+                        px-1 py-0.5 sm:px-1.5 sm:py-0.5 md:px-1.5 md:py-0.5 lg:px-2 lg:py-1 xl:px-3 xl:py-2 2xl:px-8 2xl:py-6
+                        rounded-sm sm:rounded md:rounded-md lg:rounded-lg 2xl:rounded-3xl
                         bg-black/40
-                        text-[0.65rem] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white font-bold
-                        flex flex-col gap-y-0.5 sm:gap-y-1 items-left justify-center
+                        text-[0.45rem] sm:text-[0.5rem] md:text-[0.55rem] lg:text-[0.65rem] xl:text-[0.8rem] 2xl:text-2xl text-white font-bold
+                        flex flex-col gap-y-0 2xl:gap-y-2 items-left justify-center
                         backdrop-blur-sm shadow-lg">
                 <p class="underline">{{ $date }} - {{ $time }} </p>
                 @if($weatherData)
@@ -33,13 +33,13 @@
                             <td class="text-right">{{ round($weatherData['temperature'],1) }} °C</td>
                         </tr>
                         @if($dailyExtremes['max'])
-                        <tr class="text-[0.55rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-xs xl:text-sm text-red-300">
+                        <tr class="text-[0.4rem] sm:text-[0.45rem] md:text-[0.5rem] lg:text-[0.55rem] xl:text-[0.65rem] 2xl:text-xl text-red-300">
                             <td class="pr-2 pl-2">↑ {{ __('messages.max') }} ({{ $dailyExtremes['max']->measured_at->format('H:i') }})</td>
                             <td class="text-right">{{ round($dailyExtremes['max']->temperature, 1) }} °C</td>
                         </tr>
                         @endif
                         @if($dailyExtremes['min'])
-                        <tr class="text-[0.55rem] sm:text-[0.6rem] md:text-[0.7rem] lg:text-xs xl:text-sm text-blue-300">
+                        <tr class="text-[0.4rem] sm:text-[0.45rem] md:text-[0.5rem] lg:text-[0.55rem] xl:text-[0.65rem] 2xl:text-xl text-blue-300">
                             <td class="pr-2 pl-2">↓ {{ __('messages.min') }} ({{ $dailyExtremes['min']->measured_at->format('H:i') }})</td>
                             <td class="text-right">{{ round($dailyExtremes['min']->temperature, 1) }} °C</td>
                         </tr>
